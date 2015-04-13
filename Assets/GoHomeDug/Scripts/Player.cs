@@ -31,7 +31,7 @@ public class Player : MonoBehaviour {
     bool left = Input.GetKey(KeyCode.LeftArrow);
     bool up = Input.GetKey(KeyCode.UpArrow);
     HandleKeyMovements(left, right, up, ref vel);
-    DampenXVelocity(left, right, ref vel);
+    DampenAndRestrictXVelocity(left, right, ref vel);
     TestCharacterIsJump(vel);
     rigidbody.velocity = vel;
   }
@@ -53,13 +53,21 @@ public class Player : MonoBehaviour {
   }
 
   // Dampen x velocity if left and keys are not pressed and character is on floor.
-  void DampenXVelocity(bool left, bool right, ref Vector3 vel) {
-    if (!right && !left && !isJump) { // dampen x velocity
+  // Also, test if character is at ends of map
+  void DampenAndRestrictXVelocity(bool left, bool right, ref Vector3 vel) {
+    // Dampen case
+    if (!right && !left && !isJump) {
       if (vel.x < 0) {
         vel.x = Mathf.Min(vel.x + deltaVx, 0.0f);
       } else {
         vel.x = Mathf.Max(vel.x - deltaVx, 0.0f);
       }
+    }
+    // Restrict movement case
+    Vector3 pos = Camera.main.WorldToViewportPoint (transform.position);
+    float boundLimit = 0.025f; // TODO(alwong): make 0.025f a parameter
+    if ((pos.x <= boundLimit && left) || (pos.x >= (1-boundLimit) && right)) { 
+      vel.x = 0.0f;
     }
   }
 
@@ -69,6 +77,7 @@ public class Player : MonoBehaviour {
       isJump = true;
     }
   }
+
 
   // Change direction of character.
   void ChangeScaleX(float dir) {
