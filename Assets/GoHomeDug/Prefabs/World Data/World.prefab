@@ -78,8 +78,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999989, y: .00499999989, z: 0}
+    - {x: .00499999989, y: .00499999989, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -122,8 +122,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .0649999976, y: .0549999997, z: 0}
+    - {x: .0150000006, y: .0249999985, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -166,8 +166,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: -.0599999987, y: .0549999997, z: 0}
+    - {x: .0199999996, y: .0249999985, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -386,8 +386,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999989, y: .00499999989, z: 0}
+    - {x: .00499999989, y: .00499999989, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -650,8 +650,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: 0, y: -.0449999981, z: 0}
+    - {x: .0799999982, y: .0350000001, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -694,8 +694,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: 0, y: -.0150000006, z: 0}
+    - {x: .0799999982, y: .0649999976, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -782,8 +782,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .0649999976, y: .0549999997, z: 0}
+    - {x: .0150000006, y: .0249999985, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -826,8 +826,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: -.0599999987, y: .0249999985, z: 0}
+    - {x: .0199999996, y: .0549999997, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -914,8 +914,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999989, y: .00499999989, z: 0}
+    - {x: .00499999989, y: .00499999989, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -1178,8 +1178,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999896, y: 0, z: 0}
+    - {x: .075000003, y: .0799999982, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -1222,8 +1222,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .0150000006, y: 0, z: 0}
+    - {x: .0649999976, y: .0799999982, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -1266,8 +1266,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999896, y: 0, z: 0}
+    - {x: .075000003, y: .0799999982, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -1618,8 +1618,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999989, y: .00499999989, z: 0}
+    - {x: .00499999989, y: .00499999989, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -1662,8 +1662,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999989, y: .00499999989, z: 0}
+    - {x: .00499999989, y: .00499999989, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -1750,8 +1750,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999989, y: .00499999989, z: 0}
+    - {x: .00499999989, y: .00499999989, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -1794,8 +1794,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999989, y: .00499999989, z: 0}
+    - {x: .00499999989, y: .00499999989, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -2410,8 +2410,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999989, y: .00499999989, z: 0}
+    - {x: .00499999989, y: .00499999989, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -2454,8 +2454,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999989, y: .00499999989, z: 0}
+    - {x: .00499999989, y: .00499999989, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -2498,8 +2498,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999989, y: .00499999989, z: 0}
+    - {x: .00499999989, y: .00499999989, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -2586,8 +2586,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999989, y: .00499999989, z: 0}
+    - {x: .00499999989, y: .00499999989, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -3246,8 +3246,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999989, y: .00499999989, z: 0}
+    - {x: .00499999989, y: .00499999989, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -3290,8 +3290,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999989, y: .00499999989, z: 0}
+    - {x: .00499999989, y: .00499999989, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -3334,8 +3334,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999989, y: .00499999989, z: 0}
+    - {x: .00499999989, y: .00499999989, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -3422,8 +3422,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999989, y: .00499999989, z: 0}
+    - {x: .00499999989, y: .00499999989, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -3774,8 +3774,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999989, y: .00499999989, z: 0}
+    - {x: .00499999989, y: .00499999989, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -3818,8 +3818,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999989, y: .00499999989, z: 0}
+    - {x: .00499999989, y: .00499999989, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -3862,8 +3862,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999989, y: .00499999989, z: 0}
+    - {x: .00499999989, y: .00499999989, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -3906,8 +3906,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999989, y: .00499999989, z: 0}
+    - {x: .00499999989, y: .00499999989, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -3950,8 +3950,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999989, y: .00499999989, z: 0}
+    - {x: .00499999989, y: .00499999989, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -3994,8 +3994,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999989, y: .00499999989, z: 0}
+    - {x: .00499999989, y: .00499999989, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -4038,8 +4038,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999989, y: .00499999989, z: 0}
+    - {x: .00499999989, y: .00499999989, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -4082,8 +4082,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999989, y: .00499999989, z: 0}
+    - {x: .00499999989, y: .00499999989, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -4126,8 +4126,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999989, y: .00499999989, z: 0}
+    - {x: .00499999989, y: .00499999989, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -4170,8 +4170,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999989, y: .00499999989, z: 0}
+    - {x: .00499999989, y: .00499999989, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -4258,8 +4258,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999989, y: .00499999989, z: 0}
+    - {x: .00499999989, y: .00499999989, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -4302,8 +4302,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999989, y: .00499999989, z: 0}
+    - {x: .00499999989, y: .00499999989, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -4346,8 +4346,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999989, y: .00499999989, z: 0}
+    - {x: .00499999989, y: .00499999989, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -4390,8 +4390,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999989, y: .00499999989, z: 0}
+    - {x: .00499999989, y: .00499999989, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -4434,8 +4434,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999989, y: .00499999989, z: 0}
+    - {x: .00499999989, y: .00499999989, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -4478,8 +4478,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999989, y: .00499999989, z: 0}
+    - {x: .00499999989, y: .00499999989, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -4610,8 +4610,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999989, y: .00499999989, z: 0}
+    - {x: .00499999989, y: .00499999989, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -4654,8 +4654,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: 0, y: .00499999896, z: 0}
+    - {x: .0799999982, y: .075000003, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -4786,8 +4786,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: 0, y: .00499999896, z: 0}
+    - {x: .0799999982, y: .075000003, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -4830,8 +4830,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999989, y: .00499999989, z: 0}
+    - {x: .00499999989, y: .00499999989, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -4874,8 +4874,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999989, y: .00499999989, z: 0}
+    - {x: .00499999989, y: .00499999989, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -4918,8 +4918,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999989, y: .00499999989, z: 0}
+    - {x: .00499999989, y: .00499999989, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -4962,8 +4962,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999989, y: .00499999989, z: 0}
+    - {x: .00499999989, y: .00499999989, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -5006,8 +5006,8 @@ MonoBehaviour:
     colliderType: 2
     customColliders: []
     colliderVertices:
-    - {x: 0, y: 0, z: 0}
-    - {x: .0799999982, y: .0799999982, z: .100000001}
+    - {x: .00499999989, y: .00499999989, z: 0}
+    - {x: .00499999989, y: .00499999989, z: .100000001}
     colliderIndicesFwd: 
     colliderIndicesBack: 
     colliderConvex: 0
@@ -5076,7 +5076,7 @@ MonoBehaviour:
   loadable: 0
   invOrthoSize: 2
   halfTargetHeight: 50
-  buildKey: 1944692298
+  buildKey: 1038413778
   dataGuid: 28951da83b677324eab944e1763d2c22
   managedSpriteCollection: 0
   hasPlatformData: 0
