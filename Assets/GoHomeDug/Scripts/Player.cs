@@ -35,7 +35,8 @@ public class Player : MonoBehaviour {
     bool left = Input.GetKey(KeyCode.LeftArrow);
     bool up = Input.GetKey(KeyCode.UpArrow);
     HandleKeyMovements(left, right, up, ref vel);
-    DampenAndRestrictXVelocity(left, right, ref vel);
+    DampenXVelocity(left, right, ref vel);
+    RestrictXVelocity(left, right, ref vel);
     TestCharacterIsJump(vel);
     rigidbody.velocity = vel;
   }
@@ -57,9 +58,7 @@ public class Player : MonoBehaviour {
   }
 
   // Dampen x velocity if left and keys are not pressed and character is on floor.
-  // Also, test if character is at ends of map
-  void DampenAndRestrictXVelocity(bool left, bool right, ref Vector3 vel) {
-    // Dampen case
+  void DampenXVelocity(bool left, bool right, ref Vector3 vel) {
     if (!right && !left && !isJump) {
       if (vel.x < 0) {
         vel.x = Mathf.Min(vel.x + deltaVx, 0.0f);
@@ -67,14 +66,21 @@ public class Player : MonoBehaviour {
         vel.x = Mathf.Max(vel.x - deltaVx, 0.0f);
       }
     }
-    // Restrict movement case
+  }
+
+  // Test if character is at ends of map
+  void RestrictXVelocity(bool left, bool right, ref Vector3 vel) {
     Vector3 pos = Camera.main.WorldToViewportPoint (transform.position);
     float boundLimit = 0.03f; // TODO(alwong): make 0.025f a parameter, and fix for dug
-    if (pos.x <= boundLimit && (left || isJump)) {  
-      vel.x = 0.0f;
-    } else if (pos.x >= (1-boundLimit) && (right || isJump)) {
-      vel.x = 0.0f;
-    }
+    if (pos.x <= boundLimit) {
+      if (left || (isJump && vel.x < 0)) {
+        vel.x = 0.0f;
+      }
+    } else if (pos.x >= (1-boundLimit)) {
+      if (right || (isJump && vel.x > 0)) {
+        vel.x = 0.0f;
+      }
+    } 
   }
 
   // Handle case where character falls off platform without jumping
