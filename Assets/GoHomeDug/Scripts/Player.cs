@@ -4,6 +4,7 @@ using System.Collections;
 public class Player : MonoBehaviour {
 
   bool isJump = false;
+  Vector3 startPosition;
   float deltaVx = 0.3f;
   float maxSpeed = 3f;
   float jumpVelocity = 5f;
@@ -12,6 +13,7 @@ public class Player : MonoBehaviour {
   // Use this for initialization
   void Awake () {
     scaleSize = transform.localScale.x;
+    startPosition = transform.position;
   }
 
   // Use this for finding references to other components
@@ -21,6 +23,8 @@ public class Player : MonoBehaviour {
   
   // Update is called once per frame
   void Update() {
+    Debug.Log(isJump);
+    Debug.Log(rigidbody.velocity);
     UpdateVelocities();
   }
 
@@ -65,15 +69,17 @@ public class Player : MonoBehaviour {
     }
     // Restrict movement case
     Vector3 pos = Camera.main.WorldToViewportPoint (transform.position);
-    float boundLimit = 0.025f; // TODO(alwong): make 0.025f a parameter
-    if ((pos.x <= boundLimit && left) || (pos.x >= (1-boundLimit) && right)) { 
+    float boundLimit = 0.03f; // TODO(alwong): make 0.025f a parameter, and fix for dug
+    if (pos.x <= boundLimit && (left || isJump)) {  
+      vel.x = 0.0f;
+    } else if (pos.x >= (1-boundLimit) && (right || isJump)) {
       vel.x = 0.0f;
     }
   }
 
   // Handle case where character falls off platform without jumping
   void TestCharacterIsJump(Vector3 vel) {
-    if (vel.y != 0.0f && !isJump) {
+    if (approxEquals(vel.y, 0.0f) && !isJump) {
       isJump = true;
     }
   }
@@ -89,9 +95,23 @@ public class Player : MonoBehaviour {
   // Detect whether character is on ground (and can jump)
   void OnCollisionStay (Collision col) {
     foreach (ContactPoint c in col.contacts) {
-      if (c.normal.y > 0.9f) {
+      Debug.Log(c.normal.y);
+      if (c.normal.y > 0.5f) {
         isJump = false;
       }
     }
+  }
+
+  // Detect collision with player and dead bodies
+  void OnCollisionEnter (Collision col) {
+    if (col.gameObject.tag == "Enemy") {
+      transform.position = startPosition; // (TODO) alwong; handle this more graceful
+    }
+  }
+
+
+  // Perhaps put this in a utility function file?
+  bool approxEquals(float x, float y, float threshold=0.001f) {
+    return Mathf.Abs(x-y) >= threshold;
   }
 }
