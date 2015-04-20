@@ -1,14 +1,23 @@
 ﻿using UnityEngine;
+using System;
 using System.Collections;
 
 public class Player2D : MonoBehaviour {
 
+  // Movement-related variables
   bool grounded = false;
   Vector3 startPosition;
   float deltaVx = 0.5f;
   public float maxSpeed = 6f;
   public float jumpVelocity = 15f;
   float scaleSize;
+
+  // Controls-related variables
+  bool noControls = false;
+
+  // Time-related variables
+  float endTimer;
+  float endTime = 2.0f; 
 
   // Use this for initialization
   void Awake () {
@@ -24,19 +33,44 @@ public class Player2D : MonoBehaviour {
   // Update is called once per frame
   void FixedUpdate() {
     UpdateVelocities();
+    TimeUpdate();
   }
+
+
+  /**************************************************************/
+  /*                      TIMER UPDATES                         */
+  /**************************************************************/
+
+  void TimeUpdate() {
+    if (noControls) {
+      this.endTimer = Mathf.Max(0.0f, this.endTimer - Time.deltaTime);
+      if (this.endTimer == 0.0f) {
+        ChangeLevels();
+      }
+    }
+  }
+
+
+  /**************************************************************/
+  /*                    MOVEMENT MECHANICS                      */
+  /**************************************************************/
 
   // Update velocity on each timestep
   void UpdateVelocities() {
     Vector3 vel = rigidbody2D.velocity;
-    bool right = Input.GetKey(KeyCode.RightArrow);
-    bool left = Input.GetKey(KeyCode.LeftArrow);
-    bool up = Input.GetKey(KeyCode.UpArrow);
-    MuteSlopes(left, right, ref vel);
-    HandleKeyMovements(left, right, up, ref vel);
-    DampenXVelocity(left, right, ref vel);
-    RestrictXVelocity(left, right, ref vel);
-    TestCharacterGrounded(vel);
+    if (!noControls) {
+      bool right = Input.GetKey(KeyCode.RightArrow);
+      bool left = Input.GetKey(KeyCode.LeftArrow);
+      bool up = Input.GetKey(KeyCode.UpArrow);
+      MuteSlopes(left, right, ref vel);
+      HandleKeyMovements(left, right, up, ref vel);
+      DampenXVelocity(left, right, ref vel);
+      RestrictXVelocity(left, right, ref vel);
+      TestCharacterGrounded(vel);
+    } else {
+      vel.x = -this.maxSpeed; // Dug leaves left screen
+      vel.y = 0.0f;
+    }
     rigidbody2D.velocity = vel;
   }
 
@@ -75,6 +109,10 @@ public class Player2D : MonoBehaviour {
       if (left || (!this.grounded && vel.x < 0)) {
         vel.x = 0.0f;
       }
+      if (this.grounded) {
+        noControls = true;
+        this.endTimer = this.endTime;
+      }
     } else if (pos.x >= (1-boundLimit)) {
       if (right || (!this.grounded && vel.x > 0)) {
         vel.x = 0.0f;
@@ -99,7 +137,6 @@ public class Player2D : MonoBehaviour {
 
   // Detect whether character is on ground
   void OnCollisionStay2D (Collision2D col) {
-    Debug.Log("WAT2");
     foreach (ContactPoint2D c in col.contacts) {
       if (c.normal.y > 0.5f) {
         this.grounded = true;
@@ -127,9 +164,30 @@ public class Player2D : MonoBehaviour {
     }
   }
 
+  /**************************************************************/
+  /*                      LEVEL CONTROLS                        */
+  /**************************************************************/
+
+  string[] levels = 
+    new string[2] {"ThroneRoom",
+                   "Tutorial"};
+
+  void ChangeLevels() {
+    int idx = Array.IndexOf(levels, Application.loadedLevelName);
+    Application.LoadLevel(levels[idx+1]);
+  }
+
+
+
+
+
+  /**************************************************************/
+  /*                      UTIL FUNCTIONS                        */
+  /**************************************************************/
 
   // Perhaps put this in a utility function file?
   bool approxEquals(float x, float y, float threshold = 0.001f) {
     return Mathf.Abs(x-y) <= threshold;
   }
+
 }
