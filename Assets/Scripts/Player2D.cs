@@ -169,8 +169,9 @@ public class Player2D : MonoBehaviour {
   /**************************************************************/
 
   string[] levels = 
-    new string[2] {"ThroneRoom",
-                   "Tutorial"};
+    new string[3] {"ThroneRoom",
+                   "Tutorial",
+                   "Level1"};
 
   void ChangeLevels() {
     int idx = Array.IndexOf(levels, Application.loadedLevelName);

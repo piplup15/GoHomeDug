@@ -9,3 +9,5 @@ EditorBuildSettings:
     path: Assets/Scenes/ThroneRoom.unity
   - enabled: 1
     path: Assets/Scenes/Tutorial.unity
+  - enabled: 1
+    path: Assets/Scenes/Level1.unity
