@@ -12,6 +12,9 @@ GameObject:
   - 50: {fileID: 5030710}
   - 61: {fileID: 6130710}
   - 58: {fileID: 5830710}
+  - 61: {fileID: 6133434}
+  - 61: {fileID: 6133432}
+  - 61: {fileID: 6133430}
   - 114: {fileID: 11430710}
   m_Layer: 8
   m_Name: Dug
@@ -27,8 +30,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130710}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 348.700012, y: 58.5999985, z: 0}
-  m_LocalScale: {x: .300000012, y: .300000012, z: 1}
+  m_LocalPosition: {x: 166.080002, y: 20.7600002, z: 0}
+  m_LocalScale: {x: .400000006, y: .400000006, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -53,10 +56,10 @@ CircleCollider2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130710}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Radius: .682432413
+  m_Radius: 2.5036087
   m_Center: {x: -.200000003, y: -3}
 --- !u!61 &6130710
 BoxCollider2D:
@@ -67,8 +70,41 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Size: {x: 4.5531826, y: 7.00797367}
-  m_Center: {x: -.316937327, y: -.0554974861}
+  m_Size: {x: 4.49430275, y: 4.65399837}
+  m_Center: {x: -.346374512, y: -1.23248577}
+--- !u!61 &6133430
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130710}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 2.31007171, y: 1.05569541}
+  m_Center: {x: .735626221, y: 2.97189236}
+--- !u!61 &6133432
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130710}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 3.31055284, y: .879160166}
+  m_Center: {x: .235404968, y: 2.17742443}
+--- !u!61 &6133434
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130710}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 3.9284296, y: 1.08512759}
+  m_Center: {x: -.0735473633, y: 1.3976717}
 --- !u!114 &11430710
 MonoBehaviour:
   m_ObjectHideFlags: 1
