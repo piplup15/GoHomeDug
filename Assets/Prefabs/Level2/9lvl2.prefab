@@ -129,8 +129,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: e4eb0f695cbd9604d910c8f23a23b6d0, type: 2}
   m_IsTrigger: 0
-  m_Size: {x: 12.6278, y: 3.49580193}
-  m_Center: {x: 37.8439026, y: -10.8218269}
+  m_Size: {x: 10.0228996, y: 3.77989578}
+  m_Center: {x: 36.5413513, y: -10.67978}
 --- !u!61 &6127158
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -228,8 +228,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: e4eb0f695cbd9604d910c8f23a23b6d0, type: 2}
   m_IsTrigger: 0
-  m_Size: {x: 14.9331207, y: 4.37088394}
-  m_Center: {x: 28.4898529, y: 27.3364449}
+  m_Size: {x: 30.4995537, y: 4.37088394}
+  m_Center: {x: 36.2730408, y: 27.3364449}
 --- !u!61 &6127176
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -415,8 +415,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: e4eb0f695cbd9604d910c8f23a23b6d0, type: 2}
   m_IsTrigger: 0
-  m_Size: {x: 3.58496094, y: 4.41444778}
-  m_Center: {x: 34.2937012, y: 9.16988659}
+  m_Size: {x: 5.79168701, y: 4.6459198}
+  m_Center: {x: 35.3970642, y: 9.28562641}
 --- !u!61 &6127210
 BoxCollider2D:
   m_ObjectHideFlags: 1
