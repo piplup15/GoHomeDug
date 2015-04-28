@@ -16,6 +16,7 @@ GameObject:
   - 61: {fileID: 6133432}
   - 61: {fileID: 6133430}
   - 114: {fileID: 11430710}
+  - 95: {fileID: 9583022}
   m_Layer: 8
   m_Name: Dug
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130710}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 166.080002, y: 20.7600002, z: 0}
+  m_LocalPosition: {x: 303.829987, y: 194.460007, z: 0}
   m_LocalScale: {x: .400000006, y: .400000006, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -57,7 +58,7 @@ CircleCollider2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130710}
   m_Enabled: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e4eb0f695cbd9604d910c8f23a23b6d0, type: 2}
   m_IsTrigger: 0
   m_Radius: 2.5036087
   m_Center: {x: -.200000003, y: -3}
@@ -68,10 +69,10 @@ BoxCollider2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130710}
   m_Enabled: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e4eb0f695cbd9604d910c8f23a23b6d0, type: 2}
   m_IsTrigger: 0
-  m_Size: {x: 4.49430275, y: 4.65399837}
-  m_Center: {x: -.346374512, y: -1.23248577}
+  m_Size: {x: 4.70302629, y: 4.65399837}
+  m_Center: {x: -.450744629, y: -1.23248577}
 --- !u!61 &6133430
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -79,7 +80,7 @@ BoxCollider2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130710}
   m_Enabled: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e4eb0f695cbd9604d910c8f23a23b6d0, type: 2}
   m_IsTrigger: 0
   m_Size: {x: 2.31007171, y: 1.05569541}
   m_Center: {x: .735626221, y: 2.97189236}
@@ -90,7 +91,7 @@ BoxCollider2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130710}
   m_Enabled: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e4eb0f695cbd9604d910c8f23a23b6d0, type: 2}
   m_IsTrigger: 0
   m_Size: {x: 3.31055284, y: .879160166}
   m_Center: {x: .235404968, y: 2.17742443}
@@ -101,10 +102,25 @@ BoxCollider2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130710}
   m_Enabled: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e4eb0f695cbd9604d910c8f23a23b6d0, type: 2}
   m_IsTrigger: 0
   m_Size: {x: 3.9284296, y: 1.08512759}
   m_Center: {x: -.0735473633, y: 1.3976717}
+--- !u!95 &9583022
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130710}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 691870fd5be6f60458459b2df03682aa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &11430710
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -116,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6560987e24ca24641a8d7fe57827cced, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 6
+  maxSpeed: 8
   jumpVelocity: 14
 --- !u!212 &21230710
 SpriteRenderer:
