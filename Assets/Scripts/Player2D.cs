@@ -14,20 +14,28 @@ public class Player2D : MonoBehaviour {
 
   // Controls-related variables
   bool noControls = false;
+  bool endLevel = false;
 
   // Time-related variables
   float endTimer;
   float endTime = 2.0f; 
 
+  // Animation-related variables
+  Animator animator;
+
+  // Level-Dependent Variables
+  GameObject[] liftObjects;
+
   // Use this for initialization
   void Awake () {
     this.scaleSize = this.transform.localScale.x;
     this.startPosition = this.transform.position;
+    this.animator = GetComponent<Animator>();
   }
 
   // Use this for finding references to other components
   void Start () {
-
+    this.liftObjects = GameObject.FindGameObjectsWithTag("Lift");
   }
 
   // Update is called once per frame
@@ -42,7 +50,7 @@ public class Player2D : MonoBehaviour {
   /**************************************************************/
 
   void TimeUpdate() {
-    if (noControls) {
+    if (this.endLevel) {
       this.endTimer = Mathf.Max(0.0f, this.endTimer - Time.deltaTime);
       if (this.endTimer == 0.0f) {
         ChangeLevels();
@@ -62,14 +70,17 @@ public class Player2D : MonoBehaviour {
       bool right = Input.GetKey(KeyCode.RightArrow);
       bool left = Input.GetKey(KeyCode.LeftArrow);
       bool up = Input.GetKey(KeyCode.UpArrow);
-      MuteSlopes(left, right, ref vel);
       HandleKeyMovements(left, right, up, ref vel);
       DampenXVelocity(left, right, ref vel);
       RestrictXVelocity(left, right, ref vel);
       TestCharacterGrounded(vel);
-    } else {
+    } else if (endLevel) {
       vel.x = -this.maxSpeed; // Dug leaves left screen
       vel.y = 0.0f;
+    } else {
+      vel.x = 0.0f;
+      vel.y = 0.0f;
+      this.animator.SetBool("isIdle", true);
     }
     rigidbody2D.velocity = vel;
   }
@@ -79,10 +90,12 @@ public class Player2D : MonoBehaviour {
     if (right) {
       vel.x = Mathf.Min(vel.x + deltaVx, maxSpeed); 
       ChangeScaleX(-1.0f); // Cause Dug faces left normally
+      this.animator.SetBool("isIdle", false);
     }
     if (left) {
       vel.x = Mathf.Max(vel.x - deltaVx, -maxSpeed); 
       ChangeScaleX(1.0f);
+      this.animator.SetBool("isIdle", false);
     }
     if (up && this.grounded) {
       vel.y = jumpVelocity;
@@ -98,6 +111,9 @@ public class Player2D : MonoBehaviour {
       } else {
         vel.x = Mathf.Max(vel.x - deltaVx, 0.0f);
       }
+      if (vel.x == 0.0f) {
+        this.animator.SetBool("isIdle", true);
+      }
     }
   }
 
@@ -110,8 +126,9 @@ public class Player2D : MonoBehaviour {
         vel.x = 0.0f;
       }
       if (this.grounded) {
-        noControls = true;
+        this.noControls = true;
         this.endTimer = this.endTime;
+        this.endLevel = true;
       }
     } else if (pos.x >= (1-boundLimit)) {
       if (right || (!this.grounded && vel.x > 0)) {
@@ -142,27 +159,40 @@ public class Player2D : MonoBehaviour {
         this.grounded = true;
       }
     }
+    if (col.gameObject.tag == "Lift") {
+      LiftScript lift = col.gameObject.GetComponent<LiftScript>();
+      lift.SetUsed(true);
+      this.noControls = lift.IsMoving();
+      if (lift.IsMoving()) {
+        float shiftamt = -0.2f;
+        this.TranslateY(shiftamt);
+        lift.TranslateY(shiftamt);
+      } else {
+        this.noControls = false;
+      }
+    }
   }
 
   // Detect collision with player and dead bodies
   void OnCollisionEnter2D (Collision2D col) {
     if (col.gameObject.tag == "Enemy") {
       this.transform.position = this.startPosition; // (TODO) alwong; handle this more graceful
-    }
-  }
+      this.rigidbody2D.velocity = new Vector2(0.0f, 0.0f);
 
-  void MuteSlopes(bool left, bool right, ref Vector3 vel) {
-    if (this.grounded) {
-      RaycastHit2D hit = Physics2D.Raycast(this.transform.position, -Vector2.up, Mathf.Infinity, ~(1 << 8));
-      if (hit && Mathf.Abs(hit.normal.x) > 0.1) {
-        vel.x -= hit.normal.x * 0.6f; // What is this number?
-        int sign = (vel.x - hit.normal.x > 0 ? 1 : -1);
-        Vector3 pos = this.transform.position;
-        pos.y += -hit.normal.x * Mathf.Abs(vel.x) * Time.deltaTime * sign;
-        this.transform.position = pos;
+      // If there are lifts, reset them:
+      foreach (GameObject lift in this.liftObjects) {
+        lift.GetComponent<LiftScript>().Reset();
       }
     }
   }
+
+  // Translate amt units in the Y direction:
+  void TranslateY(float amt) {
+    Vector3 pos = this.transform.position;
+    pos.y += amt;
+    this.transform.position = pos;
+  }
+
 
   /**************************************************************/
   /*                      LEVEL CONTROLS                        */

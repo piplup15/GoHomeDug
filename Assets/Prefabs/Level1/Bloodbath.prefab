@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &144274
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 444274}
+  - 61: {fileID: 6144266}
+  - 61: {fileID: 6144268}
+  - 61: {fileID: 6144270}
+  - 61: {fileID: 6144272}
+  - 61: {fileID: 6144274}
+  m_Layer: 0
+  m_Name: Bloodbath
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &444274
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144274}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 296.23999, y: 48.4599991, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!61 &6144266
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144274}
+  m_Enabled: 1
+  m_Material: {fileID: 6200000, guid: e4eb0f695cbd9604d910c8f23a23b6d0, type: 2}
+  m_IsTrigger: 0
+  m_Size: {x: 20.7756424, y: 2.48959398}
+  m_Center: {x: 5.98403931, y: -1.00162506}
+--- !u!61 &6144268
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144274}
+  m_Enabled: 1
+  m_Material: {fileID: 6200000, guid: e4eb0f695cbd9604d910c8f23a23b6d0, type: 2}
+  m_IsTrigger: 0
+  m_Size: {x: 30.2750893, y: 7.51953888}
+  m_Center: {x: -21.1992188, y: -14.0794907}
+--- !u!61 &6144270
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144274}
+  m_Enabled: 1
+  m_Material: {fileID: 6200000, guid: e4eb0f695cbd9604d910c8f23a23b6d0, type: 2}
+  m_IsTrigger: 0
+  m_Size: {x: 62.9663086, y: 5.21135712}
+  m_Center: {x: -146.790741, y: -44.0835648}
+--- !u!61 &6144272
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144274}
+  m_Enabled: 1
+  m_Material: {fileID: 6200000, guid: e4eb0f695cbd9604d910c8f23a23b6d0, type: 2}
+  m_IsTrigger: 0
+  m_Size: {x: 19.9585266, y: 3.12493896}
+  m_Center: {x: -224.843063, y: -62.9284973}
+--- !u!61 &6144274
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 144274}
+  m_Enabled: 1
+  m_Material: {fileID: 6200000, guid: e4eb0f695cbd9604d910c8f23a23b6d0, type: 2}
+  m_IsTrigger: 0
+  m_Size: {x: 28.3930054, y: 2.81143188}
+  m_Center: {x: -258.27359, y: -69.0055389}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 144274}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1

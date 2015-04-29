@@ -1,0 +1,113 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &153418
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 453418}
+  - 61: {fileID: 6153408}
+  - 61: {fileID: 6153410}
+  - 61: {fileID: 6153412}
+  - 61: {fileID: 6153414}
+  - 61: {fileID: 6153416}
+  - 61: {fileID: 6153418}
+  m_Layer: 0
+  m_Name: Bloodbath
+  m_TagString: Enemy
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &453418
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153418}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 254.399994, y: 137.100006, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!61 &6153408
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153418}
+  m_Enabled: 1
+  m_Material: {fileID: 6200000, guid: e4eb0f695cbd9604d910c8f23a23b6d0, type: 2}
+  m_IsTrigger: 0
+  m_Size: {x: 18.6850529, y: 6.07974243}
+  m_Center: {x: -2.44580078, y: 2.53987122}
+--- !u!61 &6153410
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153418}
+  m_Enabled: 1
+  m_Material: {fileID: 6200000, guid: e4eb0f695cbd9604d910c8f23a23b6d0, type: 2}
+  m_IsTrigger: 0
+  m_Size: {x: 21.6908112, y: 7.20857477}
+  m_Center: {x: -45.3392639, y: 3.10427856}
+--- !u!61 &6153412
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153418}
+  m_Enabled: 1
+  m_Material: {fileID: 6200000, guid: e4eb0f695cbd9604d910c8f23a23b6d0, type: 2}
+  m_IsTrigger: 0
+  m_Size: {x: 64.0777893, y: 3.47895813}
+  m_Center: {x: -29.7432098, y: -34.637001}
+--- !u!61 &6153414
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153418}
+  m_Enabled: 1
+  m_Material: {fileID: 6200000, guid: e4eb0f695cbd9604d910c8f23a23b6d0, type: 2}
+  m_IsTrigger: 0
+  m_Size: {x: 58.0522041, y: 4.40719604}
+  m_Center: {x: -26.7303925, y: -163.520386}
+--- !u!61 &6153416
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153418}
+  m_Enabled: 1
+  m_Material: {fileID: 6200000, guid: e4eb0f695cbd9604d910c8f23a23b6d0, type: 2}
+  m_IsTrigger: 0
+  m_Size: {x: 42.7535706, y: 8.3633728}
+  m_Center: {x: -117.985703, y: -161.542282}
+--- !u!61 &6153418
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153418}
+  m_Enabled: 1
+  m_Material: {fileID: 6200000, guid: e4eb0f695cbd9604d910c8f23a23b6d0, type: 2}
+  m_IsTrigger: 0
+  m_Size: {x: 114.790375, y: 19.5811157}
+  m_Center: {x: -233.127792, y: -155.933411}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 153418}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1
