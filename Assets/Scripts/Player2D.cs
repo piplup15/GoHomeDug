@@ -79,7 +79,6 @@ public class Player2D : MonoBehaviour {
       vel.x = -this.maxSpeed; // Dug leaves left screen
       vel.y = 0.0f;
       this.rigidbody2D.gravityScale = 0.0f;
-      Debug.Log(this.rigidbody2D.gravityScale);
     } else {
       vel.x = 0.0f;
       vel.y = 0.0f;
