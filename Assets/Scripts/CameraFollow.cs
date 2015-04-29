@@ -10,7 +10,7 @@ public class CameraFollow : MonoBehaviour {
   // Use this for initialization
   void Start () {
     player = GameObject.Find("Dug");
-    rightBound = player.transform.position.x;
+    rightBound = player.GetComponent<Player2D>().GetStartPosition().x;
   }
   
   // Update camera to follow player

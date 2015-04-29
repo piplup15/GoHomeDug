@@ -13,7 +13,6 @@ public class AudioSurround : MonoBehaviour {
   void Start () {
     player = GameObject.Find("Dug");
     GameObject[] musicList = GameObject.FindGameObjectsWithTag("BackgroundMusic"); // At most
-    Debug.Log(musicList.Length);
     if (musicList.Length == 2) {
       GameObject thisObject = (musicList[0] == transform.gameObject) ? musicList[0] : musicList[1];
       GameObject otherObject = (musicList[0] == transform.gameObject) ? musicList[1] : musicList[0];

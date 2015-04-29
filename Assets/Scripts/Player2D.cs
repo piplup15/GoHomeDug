@@ -15,6 +15,7 @@ public class Player2D : MonoBehaviour {
   // Controls-related variables
   bool noControls = false;
   bool endLevel = false;
+  bool beginLevel = false;
 
   // Time-related variables
   float endTimer;
@@ -24,7 +25,7 @@ public class Player2D : MonoBehaviour {
   Animator animator;
 
   // Level-Dependent Variables
-  GameObject[] liftObjects;
+  GameObject[] movableObjects;
 
   // Use this for initialization
   void Awake () {
@@ -35,7 +36,7 @@ public class Player2D : MonoBehaviour {
 
   // Use this for finding references to other components
   void Start () {
-    this.liftObjects = GameObject.FindGameObjectsWithTag("Lift");
+    this.movableObjects = GameObject.FindGameObjectsWithTag("Movable");
   }
 
   // Update is called once per frame
@@ -74,7 +75,7 @@ public class Player2D : MonoBehaviour {
       DampenXVelocity(left, right, ref vel);
       RestrictXVelocity(left, right, ref vel);
       TestCharacterGrounded(vel);
-    } else if (endLevel) {
+    } else if (endLevel || beginLevel) {
       vel.x = -this.maxSpeed; // Dug leaves left screen
       vel.y = 0.0f;
     } else {
@@ -120,7 +121,7 @@ public class Player2D : MonoBehaviour {
   // Test if character is at ends of map
   void RestrictXVelocity(bool left, bool right, ref Vector3 vel) {
     Vector3 pos = Camera.main.WorldToViewportPoint (this.transform.position);
-    float boundLimit = 0.03f; // TODO(alwong): make a parameter, and fix for dug
+    float boundLimit = 0.02f; // TODO(alwong): make a parameter, and fix for dug
     if (pos.x <= boundLimit) {
       if (left || (!this.grounded && vel.x < 0)) {
         vel.x = 0.0f;
@@ -144,6 +145,11 @@ public class Player2D : MonoBehaviour {
     }
   }
 
+  // Get Starting Position of player
+  public Vector3 GetStartPosition() {
+    return this.startPosition;
+  }
+
 
   // Change direction of character.
   void ChangeScaleX(float dir) {
@@ -159,14 +165,15 @@ public class Player2D : MonoBehaviour {
         this.grounded = true;
       }
     }
-    if (col.gameObject.tag == "Lift") {
-      LiftScript lift = col.gameObject.GetComponent<LiftScript>();
-      lift.SetUsed(true);
-      this.noControls = lift.IsMoving();
-      if (lift.IsMoving()) {
-        float shiftamt = -0.2f;
-        this.TranslateY(shiftamt);
-        lift.TranslateY(shiftamt);
+    if (col.gameObject.tag == "Movable") {
+      MovableScript m = col.gameObject.GetComponent<MovableScript>();
+      m.SetUsed(true);
+      this.noControls = m.IsMoving();
+      if (m.IsMoving()) {
+        float shiftamt = m.GetIncrement();
+        m.TranslateAmtInDir(shiftamt, m.GetDirection());
+        this.TranslateAmtInDir(shiftamt, m.GetDirection());
+        this.grounded = true;
       } else {
         this.noControls = false;
       }
@@ -179,17 +186,21 @@ public class Player2D : MonoBehaviour {
       this.transform.position = this.startPosition; // (TODO) alwong; handle this more graceful
       this.rigidbody2D.velocity = new Vector2(0.0f, 0.0f);
 
-      // If there are lifts, reset them:
-      foreach (GameObject lift in this.liftObjects) {
-        lift.GetComponent<LiftScript>().Reset();
+      // If there are any movables, reset them:
+      foreach (GameObject movable in this.movableObjects) {
+        movable.GetComponent<MovableScript>().Reset();
       }
     }
   }
 
-  // Translate amt units in the Y direction:
-  void TranslateY(float amt) {
+  // Translate amt units in a direction
+  public void TranslateAmtInDir(float amt, string dir) {
     Vector3 pos = this.transform.position;
-    pos.y += amt;
+    if (dir == "x") {
+      pos.x += amt;
+    } else {
+      pos.y += amt;
+    }
     this.transform.position = pos;
   }
 
@@ -209,9 +220,6 @@ public class Player2D : MonoBehaviour {
     int idx = Array.IndexOf(levels, Application.loadedLevelName);
     Application.LoadLevel(levels[idx+1]);
   }
-
-
-
 
 
   /**************************************************************/
