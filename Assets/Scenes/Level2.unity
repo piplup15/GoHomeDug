@@ -1734,6 +1734,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 22
       objectReference: {fileID: 0}
+    - target: {fileID: 6176002, guid: 6c62afd66dd2035409531b2fa6e4d6b7, type: 2}
+      propertyPath: m_Size.x
+      value: 181.263611
+      objectReference: {fileID: 0}
+    - target: {fileID: 6176002, guid: 6c62afd66dd2035409531b2fa6e4d6b7, type: 2}
+      propertyPath: m_Center.x
+      value: -24.3507271
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6c62afd66dd2035409531b2fa6e4d6b7, type: 2}
   m_RootGameObject: {fileID: 1352157095}
@@ -3562,7 +3570,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 430122, guid: d0ae6b7e3ba6493429e1cfb0f174c804, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 1
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 430122, guid: d0ae6b7e3ba6493429e1cfb0f174c804, type: 2}
       propertyPath: m_LocalRotation.x
@@ -6317,8 +6325,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: e4eb0f695cbd9604d910c8f23a23b6d0, type: 2}
   m_IsTrigger: 0
-  m_Size: {x: 102.281097, y: 31.7835388}
-  m_Center: {x: 15.1405258, y: -35.7532272}
+  m_Size: {x: 181.263611, y: 31.7835388}
+  m_Center: {x: -24.3507271, y: -35.7532272}
 --- !u!212 &1352157100
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6684,7 +6692,7 @@ Transform:
   m_PrefabInternal: {fileID: 757383170}
   m_GameObject: {fileID: 1488689860}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 291, y: 84.4000015, z: 1}
+  m_LocalPosition: {x: 291, y: 84.4000015, z: -2}
   m_LocalScale: {x: 1, y: 1.11000001, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

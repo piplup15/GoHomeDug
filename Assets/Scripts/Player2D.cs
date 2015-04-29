@@ -67,10 +67,10 @@ public class Player2D : MonoBehaviour {
   // Update velocity on each timestep
   void UpdateVelocities() {
     Vector3 vel = rigidbody2D.velocity;
+    bool right = Input.GetKey(KeyCode.RightArrow);
+    bool left = Input.GetKey(KeyCode.LeftArrow);
+    bool up = Input.GetKey(KeyCode.UpArrow);
     if (!noControls) {
-      bool right = Input.GetKey(KeyCode.RightArrow);
-      bool left = Input.GetKey(KeyCode.LeftArrow);
-      bool up = Input.GetKey(KeyCode.UpArrow);
       HandleKeyMovements(left, right, up, ref vel);
       DampenXVelocity(left, right, ref vel);
       RestrictXVelocity(left, right, ref vel);
@@ -78,9 +78,12 @@ public class Player2D : MonoBehaviour {
     } else if (endLevel || beginLevel) {
       vel.x = -this.maxSpeed; // Dug leaves left screen
       vel.y = 0.0f;
+      this.rigidbody2D.gravityScale = 0.0f;
+      Debug.Log(this.rigidbody2D.gravityScale);
     } else {
       vel.x = 0.0f;
       vel.y = 0.0f;
+      RestrictXVelocity(left, right, ref vel);
       this.animator.SetBool("isIdle", true);
     }
     rigidbody2D.velocity = vel;
@@ -210,11 +213,12 @@ public class Player2D : MonoBehaviour {
   /**************************************************************/
 
   string[] levels = 
-    new string[5] {"ThroneRoom",
+    new string[6] {"ThroneRoom",
                    "Tutorial",
                    "OutsideCastle",
                    "Level1",
-                   "Level2"};
+                   "Level2",
+                   "PathToCliffside"};
 
   void ChangeLevels() {
     int idx = Array.IndexOf(levels, Application.loadedLevelName);
