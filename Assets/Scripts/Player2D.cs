@@ -54,7 +54,7 @@ public class Player2D : MonoBehaviour {
       vel.x = -this.maxSpeed; // Dug leaves left screen
       vel.y = 0.0f;
       this.rigidbody2D.gravityScale = 0.0f;
-    } else {
+    } else if (gs.GetState() == GameState.State.NOCONTROLS) {
       vel.x = 0.0f;
       vel.y = 0.0f;
       RestrictXVelocity(left, right, ref vel);
@@ -160,14 +160,17 @@ public class Player2D : MonoBehaviour {
   // Detect collision with player and dead bodies
   void OnCollisionEnter2D (Collision2D col) {
     if (col.gameObject.tag == "Enemy") {
-      this.transform.position = this.startPosition; // (TODO) alwong; handle this more graceful
-      this.rigidbody2D.velocity = new Vector2(0.0f, 0.0f);
+      gs.SetState(GameState.State.RESPAWN);
       this.gs.ResetMovables();
     }
     if (col.gameObject.tag == "Movable") {
       MovableScript m = col.gameObject.GetComponent<MovableScript>();
       gs.SetCurrentMovable(m);
     }
+  }
+
+  public void ResetVelocity() {
+    this.rigidbody2D.velocity = new Vector2(0.0f, 0.0f);
   }
 
   // Translate amt units in a direction

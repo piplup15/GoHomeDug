@@ -13,6 +13,8 @@ public class MovableScript : MonoBehaviour {
   public enum ResetStatus {ALWAYS_DEFAULT, BASED_ON_CHECKPOINT}
   public ResetStatus resetStatus = ResetStatus.ALWAYS_DEFAULT;
 
+  AudioSource audioSource;
+
   float distance = 0.0f;
   int defaultDirection;
 
@@ -20,6 +22,7 @@ public class MovableScript : MonoBehaviour {
   Vector3 usedPosition;
 
   void Awake() {
+    audioSource = GetComponent<AudioSource>();
     defaultDirection = direction;
     defaultPosition = this.transform.position;
     usedPosition = this.transform.position;
@@ -39,6 +42,10 @@ public class MovableScript : MonoBehaviour {
     }
     this.transform.position = pos;
     distance += Mathf.Abs(amt);
+  }
+
+  public AudioSource GetAudioSource() {
+    return audioSource;
   }
 
   public bool IsMoving() {
