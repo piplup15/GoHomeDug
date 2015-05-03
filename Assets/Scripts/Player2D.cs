@@ -8,8 +8,8 @@ public class Player2D : MonoBehaviour {
   bool grounded = false;
   Vector3 startPosition;
   float deltaVx = 0.5f;
-  public float maxSpeed = 6f;
-  public float jumpVelocity = 15f;
+  public float maxSpeed = 8f;
+  public float jumpVelocity = 14f;
   float scaleSize;
 
   // Animation-related variables
@@ -28,6 +28,11 @@ public class Player2D : MonoBehaviour {
   // Use this for finding references to other components
   void Start () {
     this.gs = GameObject.FindGameObjectWithTag("GameState").GetComponent<GameState>();
+    if (gs.GetState() == GameState.State.BEGIN) {
+      Vector3 pos = Camera.main.WorldToViewportPoint (this.transform.position);
+      pos.x = 1.02f;
+      this.transform.position = Camera.main.ViewportToWorldPoint(pos);
+    }
   }
 
   // Update is called once per frame
@@ -50,10 +55,17 @@ public class Player2D : MonoBehaviour {
       DampenXVelocity(left, right, ref vel);
       RestrictXVelocity(left, right, ref vel);
       TestCharacterGrounded(vel);
+    } else if (gs.GetState() == GameState.State.BEGIN) {
+      vel.x = -this.maxSpeed; // Dug enters from right screen
+      vel.y = 0.0f;
+      this.animator.SetBool("isIdle", false);
+      if (this.transform.position.x < this.startPosition.x + gs.GetBeginMargin()) {
+        gs.SetState(GameState.State.PLAY);
+      }
     } else if (gs.GetState() == GameState.State.END) {
       vel.x = -this.maxSpeed; // Dug leaves left screen
       vel.y = 0.0f;
-      this.rigidbody2D.gravityScale = 0.0f;
+      this.animator.SetBool("isIdle", false);
     } else if (gs.GetState() == GameState.State.NOCONTROLS) {
       vel.x = 0.0f;
       vel.y = 0.0f;

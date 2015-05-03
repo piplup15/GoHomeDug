@@ -73,7 +73,6 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
-    tileSizeHint: 0
   m_NavMesh: {fileID: 0}
 --- !u!1001 &16473936
 Prefab:
@@ -240,9 +239,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextLevelName: Tutorial
-  checkPoints: []
   screenLeftBound: .0199999996
   screenRightBound: .980000019
+  checkPoints: []
 --- !u!4 &362502640
 Transform:
   m_ObjectHideFlags: 0
@@ -593,10 +592,10 @@ BoxCollider2D:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1364977105}
   m_Enabled: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e4eb0f695cbd9604d910c8f23a23b6d0, type: 2}
   m_IsTrigger: 0
-  m_Size: {x: 22.2743378, y: 2.73876762}
-  m_Center: {x: 6.39252949, y: -1.17622662}
+  m_Size: {x: 26.2387657, y: 2.73876762}
+  m_Center: {x: 8.37474155, y: -1.17622662}
 --- !u!4 &1364977107
 Transform:
   m_ObjectHideFlags: 0
@@ -626,7 +625,6 @@ GameObject:
   - 61: {fileID: 1618559690}
   - 114: {fileID: 1618559689}
   - 95: {fileID: 1618559699}
-  - 81: {fileID: 1618559698}
   m_Layer: 8
   m_Name: Dug
   m_TagString: Untagged
@@ -759,14 +757,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
---- !u!81 &1618559698
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8182114, guid: 2a1ac0e3a3e1fc74890613249fb9606f,
-    type: 2}
-  m_PrefabInternal: {fileID: 16473936}
-  m_GameObject: {fileID: 1618559688}
-  m_Enabled: 1
 --- !u!95 &1618559699
 Animator:
   serializedVersion: 3
@@ -793,6 +783,7 @@ GameObject:
   - 4: {fileID: 1638933535}
   - 82: {fileID: 1638933534}
   - 114: {fileID: 1638933533}
+  - 81: {fileID: 1638933536}
   m_Layer: 0
   m_Name: BackgroundMusic1
   m_TagString: BackgroundMusic
@@ -879,10 +870,18 @@ Transform:
   m_GameObject: {fileID: 1638933532}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .0199999996, y: 0, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
+--- !u!81 &1638933536
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 8129722, guid: f78dbe2904b6cf04e8673b55533efc1d,
+    type: 2}
+  m_PrefabInternal: {fileID: 438401123}
+  m_GameObject: {fileID: 1638933532}
+  m_Enabled: 1
 --- !u!1 &1871314055
 GameObject:
   m_ObjectHideFlags: 0
@@ -909,8 +908,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: e4eb0f695cbd9604d910c8f23a23b6d0, type: 2}
   m_IsTrigger: 0
-  m_Size: {x: 57.1219025, y: 5.34463501}
-  m_Center: {x: 2.24504852, y: 1.29079437}
+  m_Size: {x: 89.5585098, y: 5.34463501}
+  m_Center: {x: 3.03345871, y: 1.29079437}
 --- !u!4 &1871314057
 Transform:
   m_ObjectHideFlags: 0

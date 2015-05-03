@@ -73,7 +73,6 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
-    tileSizeHint: 0
   m_NavMesh: {fileID: 0}
 --- !u!1 &88895684
 GameObject:
@@ -101,8 +100,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: e4eb0f695cbd9604d910c8f23a23b6d0, type: 2}
   m_IsTrigger: 0
-  m_Size: {x: 57.1219025, y: 5.34463501}
-  m_Center: {x: 2.24504852, y: 1.29079437}
+  m_Size: {x: 89.5585098, y: 5.34463501}
+  m_Center: {x: 3.03345871, y: 1.29079437}
 --- !u!4 &88895686
 Transform:
   m_ObjectHideFlags: 0
@@ -429,6 +428,10 @@ Prefab:
       propertyPath: nextLevelName
       value: OutsideCastle
       objectReference: {fileID: 0}
+    - target: {fileID: 11468172, guid: cf4c2233ada5fe248ad9942fa2e2d2d3, type: 2}
+      propertyPath: state
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cf4c2233ada5fe248ad9942fa2e2d2d3, type: 2}
   m_RootGameObject: {fileID: 810060367}
@@ -499,7 +502,6 @@ GameObject:
   - 61: {fileID: 466313863}
   - 114: {fileID: 466313860}
   - 95: {fileID: 466313866}
-  - 81: {fileID: 466313867}
   m_Layer: 8
   m_Name: Dug
   m_TagString: Untagged
@@ -648,14 +650,6 @@ Animator:
   m_ApplyRootMotion: 0
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!81 &466313867
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8182114, guid: 2a1ac0e3a3e1fc74890613249fb9606f,
-    type: 2}
-  m_PrefabInternal: {fileID: 1244898193}
-  m_GameObject: {fileID: 466313856}
-  m_Enabled: 1
 --- !u!1 &562021322
 GameObject:
   m_ObjectHideFlags: 0
@@ -919,9 +913,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextLevelName: OutsideCastle
-  checkPoints: []
   screenLeftBound: .0199999996
   screenRightBound: .980000019
+  checkPoints: []
+  state: 2
 --- !u!4 &810060369
 Transform:
   m_ObjectHideFlags: 0
@@ -1164,6 +1159,7 @@ GameObject:
   - 4: {fileID: 1872244608}
   - 82: {fileID: 1872244607}
   - 114: {fileID: 1872244609}
+  - 81: {fileID: 1872244610}
   m_Layer: 0
   m_Name: BackgroundMusic1
   m_TagString: BackgroundMusic
@@ -1238,7 +1234,7 @@ Transform:
   m_GameObject: {fileID: 1872244606}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .0199999996, y: 0, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
@@ -1254,6 +1250,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 610a6b36600823446b7e24f04e53906c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!81 &1872244610
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 8129722, guid: f78dbe2904b6cf04e8673b55533efc1d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1692621733}
+  m_GameObject: {fileID: 1872244606}
+  m_Enabled: 1
 --- !u!1 &1885222886
 GameObject:
   m_ObjectHideFlags: 0

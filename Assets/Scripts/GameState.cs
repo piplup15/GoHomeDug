@@ -8,6 +8,7 @@ public class GameState : MonoBehaviour {
   public float screenLeftBound = 0.02f;
   public float screenRightBound = 0.98f;
   public Vector2[] checkPoints; // err, not sure why this isn't showing up on the inspector...
+  public float beginMargin = 0.5f;
 
   GameObject[] movableObjects;
   int checkPointIdx = -1;
@@ -16,7 +17,7 @@ public class GameState : MonoBehaviour {
   Player2D playerScript;
 
   public enum State {BEGIN, END, PLAY, NOCONTROLS, END_ON_MOVABLE, RESPAWN}
-  State state = State.PLAY;
+  public State state = State.BEGIN;
 
   float endTimer = 2.0f;
   float respawnTime = 0.0f;
@@ -43,7 +44,7 @@ public class GameState : MonoBehaviour {
     this.movableObjects = GameObject.FindGameObjectsWithTag("Movable");
   }
 
-  void Update() {
+  void FixedUpdate() {
     if (this.state == State.END || this.state == State.END_ON_MOVABLE) {
       HandleEndGameTimer();
     } else if (this.state == State.RESPAWN) {
@@ -131,5 +132,9 @@ public class GameState : MonoBehaviour {
 
   public float GetScreenRightBound() {
     return screenRightBound;
+  }
+
+  public float GetBeginMargin() {
+    return beginMargin;
   }
 }

@@ -39,10 +39,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72d950149693a1144b4ab8e98d74edbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevelName: Level3
-  checkPoints: []
+  nextLevelName: Home
   screenLeftBound: .0199999996
   screenRightBound: .980000019
+  checkPoints: []
+  state: 0
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

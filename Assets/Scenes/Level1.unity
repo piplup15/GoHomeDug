@@ -73,7 +73,6 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
-    tileSizeHint: 0
   m_NavMesh: {fileID: 0}
 --- !u!1 &7278525
 GameObject:
@@ -472,7 +471,7 @@ Transform:
   m_PrefabInternal: {fileID: 2142581356}
   m_GameObject: {fileID: 77894205}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 355.399994, y: 61.0999985, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -734,11 +733,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 430710, guid: 2a1ac0e3a3e1fc74890613249fb9606f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 290.100006
+      value: 356.200012
       objectReference: {fileID: 0}
     - target: {fileID: 430710, guid: 2a1ac0e3a3e1fc74890613249fb9606f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 52.0999985
+      value: 60.7999992
       objectReference: {fileID: 0}
     - target: {fileID: 430710, guid: 2a1ac0e3a3e1fc74890613249fb9606f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2413,6 +2412,8 @@ MonoBehaviour:
   screenLeftBound: .150000006
   screenRightBound: .980000019
   checkPoints: []
+  beginMargin: 2
+  state: 0
 --- !u!4 &1211202597
 Transform:
   m_ObjectHideFlags: 0
@@ -2599,8 +2600,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: e4eb0f695cbd9604d910c8f23a23b6d0, type: 2}
   m_IsTrigger: 0
-  m_Size: {x: 69.1816559, y: 6.60925674}
-  m_Center: {x: 34.0691223, y: 52.8323021}
+  m_Size: {x: 118.286606, y: 6.60925293}
+  m_Center: {x: 58.6217346, y: 52.8323059}
 --- !u!61 &1286575126
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3003,6 +3004,22 @@ Prefab:
       propertyPath: m_Center.x
       value: -32.3663025
       objectReference: {fileID: 0}
+    - target: {fileID: 6126704, guid: de7ff6df65c332b4e824dd37a6de24d7, type: 2}
+      propertyPath: m_Size.x
+      value: 118.286606
+      objectReference: {fileID: 0}
+    - target: {fileID: 6126704, guid: de7ff6df65c332b4e824dd37a6de24d7, type: 2}
+      propertyPath: m_Size.y
+      value: 6.60925293
+      objectReference: {fileID: 0}
+    - target: {fileID: 6126704, guid: de7ff6df65c332b4e824dd37a6de24d7, type: 2}
+      propertyPath: m_Center.x
+      value: 58.6217346
+      objectReference: {fileID: 0}
+    - target: {fileID: 6126704, guid: de7ff6df65c332b4e824dd37a6de24d7, type: 2}
+      propertyPath: m_Center.y
+      value: 52.8323059
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: de7ff6df65c332b4e824dd37a6de24d7, type: 2}
   m_RootGameObject: {fileID: 1286575121}
@@ -3062,6 +3079,10 @@ Prefab:
     - target: {fileID: 11468172, guid: cf4c2233ada5fe248ad9942fa2e2d2d3, type: 2}
       propertyPath: screenLeftBound
       value: .150000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 11468172, guid: cf4c2233ada5fe248ad9942fa2e2d2d3, type: 2}
+      propertyPath: beginMargin
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cf4c2233ada5fe248ad9942fa2e2d2d3, type: 2}
@@ -4654,7 +4675,7 @@ Transform:
   m_PrefabInternal: {fileID: 261712943}
   m_GameObject: {fileID: 2067630443}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 290.100006, y: 52.0999985, z: 0}
+  m_LocalPosition: {x: 356.200012, y: 60.7999992, z: 0}
   m_LocalScale: {x: .400000006, y: .400000006, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -4764,11 +4785,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 402152, guid: 4f71d4172abca1643b162c99a8e12b57, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 355.399994
       objectReference: {fileID: 0}
     - target: {fileID: 402152, guid: 4f71d4172abca1643b162c99a8e12b57, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 61.0999985
       objectReference: {fileID: 0}
     - target: {fileID: 402152, guid: 4f71d4172abca1643b162c99a8e12b57, type: 2}
       propertyPath: m_LocalPosition.z
@@ -4797,6 +4818,14 @@ Prefab:
     - target: {fileID: 11402152, guid: 4f71d4172abca1643b162c99a8e12b57, type: 2}
       propertyPath: zoomFactor
       value: .270000011
+      objectReference: {fileID: 0}
+    - target: {fileID: 402152, guid: 4f71d4172abca1643b162c99a8e12b57, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 402152, guid: 4f71d4172abca1643b162c99a8e12b57, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4f71d4172abca1643b162c99a8e12b57, type: 2}
