@@ -5,41 +5,80 @@ using System.Collections;
 public class MovableScript : MonoBehaviour {
 
   public float maxDistance;
-  bool used = false;
-  float distance = 0.0f;
-  public float increment = -0.2f;
-  public string direction = "y";
+  public float increment = 0.2f;
+  public string axis = "y";
+  public int direction = -1;
+  public int checkPointIdx = -1;
 
-  public void TranslateAmtInDir(float amt, string dir) {
+  public enum ResetStatus {ALWAYS_DEFAULT, BASED_ON_CHECKPOINT}
+  public ResetStatus resetStatus = ResetStatus.ALWAYS_DEFAULT;
+
+  float distance = 0.0f;
+  int defaultDirection;
+
+  Vector3 defaultPosition;
+  Vector3 usedPosition;
+
+  void Awake() {
+    defaultDirection = direction;
+    defaultPosition = this.transform.position;
+    usedPosition = this.transform.position;
+    if (this.axis == "x") {
+      usedPosition.x += direction * maxDistance;
+    } else {
+      usedPosition.y += direction * maxDistance;
+    }
+  }
+
+  public void TranslateAmtInDir(float amt, string axis) {
     Vector3 pos = this.transform.position;
-    if (dir == "x") {
+    if (axis == "x") {
       pos.x += amt;
     } else {
       pos.y += amt;
     }
     this.transform.position = pos;
-    distance += amt;
-  }
-
-  public void SetUsed(bool used) {
-    this.used = used;
+    distance += Mathf.Abs(amt);
   }
 
   public bool IsMoving() {
-    return this.used && (Mathf.Abs(this.distance) < this.maxDistance);
+    return this.distance < this.maxDistance;
   }
 
-  public void Reset() {
-    TranslateAmtInDir(-this.distance, this.direction);
-    this.used = false;
+  public void Reset(int cpIdx) {
+    if (resetStatus == ResetStatus.ALWAYS_DEFAULT) {
+      ResetToDefaultPosition();
+    } else {
+      if (this.checkPointIdx < cpIdx) {
+        ResetToUsedPosition();
+      } else {
+        ResetToDefaultPosition();
+      }
+    }
+  }
+
+  void ResetToDefaultPosition() {
+    this.transform.position = defaultPosition;
     this.distance = 0.0f;
+    this.direction = defaultDirection;
   }
 
-  public float GetIncrement() {
-    return this.increment;
+  void ResetToUsedPosition() {
+    this.transform.position = usedPosition;
+    this.distance = 0.0f;
+    this.direction = -defaultDirection;
   }
 
-  public string GetDirection() {
-    return this.direction;
+  public void ResetFlip() {
+    this.distance = 0.0f;
+    this.direction = -this.direction;
+  }
+
+  public float GetShiftAmt() {
+    return this.direction * this.increment;
+  }
+
+  public string GetAxis() {
+    return this.axis;
   }
 }

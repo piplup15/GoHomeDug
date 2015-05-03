@@ -6,7 +6,7 @@ TagManager:
   - Enemy
   - Movable
   - BackgroundMusic
-  - 
+  - GameState
   - 
   - 
   Builtin Layer 0: Default

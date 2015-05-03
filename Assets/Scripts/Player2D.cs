@@ -12,20 +12,11 @@ public class Player2D : MonoBehaviour {
   public float jumpVelocity = 15f;
   float scaleSize;
 
-  // Controls-related variables
-  bool noControls = false;
-  bool endLevel = false;
-  bool beginLevel = false;
-
-  // Time-related variables
-  float endTimer;
-  float endTime = 2.0f; 
-
   // Animation-related variables
   Animator animator;
 
-  // Level-Dependent Variables
-  GameObject[] movableObjects;
+  // Game state
+  GameState gs;
 
   // Use this for initialization
   void Awake () {
@@ -36,29 +27,13 @@ public class Player2D : MonoBehaviour {
 
   // Use this for finding references to other components
   void Start () {
-    this.movableObjects = GameObject.FindGameObjectsWithTag("Movable");
+    this.gs = GameObject.FindGameObjectWithTag("GameState").GetComponent<GameState>();
   }
 
   // Update is called once per frame
   void FixedUpdate() {
     UpdateVelocities();
-    TimeUpdate();
   }
-
-
-  /**************************************************************/
-  /*                      TIMER UPDATES                         */
-  /**************************************************************/
-
-  void TimeUpdate() {
-    if (this.endLevel) {
-      this.endTimer = Mathf.Max(0.0f, this.endTimer - Time.deltaTime);
-      if (this.endTimer == 0.0f) {
-        ChangeLevels();
-      }
-    }
-  }
-
 
   /**************************************************************/
   /*                    MOVEMENT MECHANICS                      */
@@ -70,12 +45,12 @@ public class Player2D : MonoBehaviour {
     bool right = Input.GetKey(KeyCode.RightArrow);
     bool left = Input.GetKey(KeyCode.LeftArrow);
     bool up = Input.GetKey(KeyCode.UpArrow);
-    if (!noControls) {
+    if (gs.GetState() == GameState.State.PLAY) {
       HandleKeyMovements(left, right, up, ref vel);
       DampenXVelocity(left, right, ref vel);
       RestrictXVelocity(left, right, ref vel);
       TestCharacterGrounded(vel);
-    } else if (endLevel || beginLevel) {
+    } else if (gs.GetState() == GameState.State.END) {
       vel.x = -this.maxSpeed; // Dug leaves left screen
       vel.y = 0.0f;
       this.rigidbody2D.gravityScale = 0.0f;
@@ -123,17 +98,18 @@ public class Player2D : MonoBehaviour {
   // Test if character is at ends of map
   void RestrictXVelocity(bool left, bool right, ref Vector3 vel) {
     Vector3 pos = Camera.main.WorldToViewportPoint (this.transform.position);
-    float boundLimit = 0.02f; // TODO(alwong): make a parameter, and fix for dug
-    if (pos.x <= boundLimit) {
+    if (pos.x <= gs.GetScreenLeftBound()) {
       if (left || (!this.grounded && vel.x < 0)) {
         vel.x = 0.0f;
       }
       if (this.grounded) {
-        this.noControls = true;
-        this.endTimer = this.endTime;
-        this.endLevel = true;
+        if (gs.GetState() == GameState.State.PLAY) {
+          gs.SetState(GameState.State.END); // regular ending, Dug walks left
+        } else if (gs.GetState() == GameState.State.NOCONTROLS) {
+          gs.SetState(GameState.State.END_ON_MOVABLE);
+        }
       }
-    } else if (pos.x >= (1-boundLimit)) {
+    } else if (pos.x >= gs.GetScreenRightBound()) {
       if (right || (!this.grounded && vel.x > 0)) {
         vel.x = 0.0f;
       }
@@ -152,6 +128,11 @@ public class Player2D : MonoBehaviour {
     return this.startPosition;
   }
 
+  // Set state of grounded flag
+  public void SetGrounded(bool grounded) {
+    this.grounded = grounded;
+  }
+
 
   // Change direction of character.
   void ChangeScaleX(float dir) {
@@ -160,38 +141,32 @@ public class Player2D : MonoBehaviour {
     transform.localScale = scale; 
   }
 
-  // Detect whether character is on ground
   void OnCollisionStay2D (Collision2D col) {
     foreach (ContactPoint2D c in col.contacts) {
       if (c.normal.y > 0.5f) {
         this.grounded = true;
       }
     }
+  }
+
+  void OnCollisionExit2D (Collision2D col) {
     if (col.gameObject.tag == "Movable") {
       MovableScript m = col.gameObject.GetComponent<MovableScript>();
-      m.SetUsed(true);
-      this.noControls = m.IsMoving();
-      if (m.IsMoving()) {
-        float shiftamt = m.GetIncrement();
-        m.TranslateAmtInDir(shiftamt, m.GetDirection());
-        this.TranslateAmtInDir(shiftamt, m.GetDirection());
-        this.grounded = true;
-      } else {
-        this.noControls = false;
-      }
+      m.ResetFlip();
     }
   }
+
 
   // Detect collision with player and dead bodies
   void OnCollisionEnter2D (Collision2D col) {
     if (col.gameObject.tag == "Enemy") {
       this.transform.position = this.startPosition; // (TODO) alwong; handle this more graceful
       this.rigidbody2D.velocity = new Vector2(0.0f, 0.0f);
-
-      // If there are any movables, reset them:
-      foreach (GameObject movable in this.movableObjects) {
-        movable.GetComponent<MovableScript>().Reset();
-      }
+      this.gs.ResetMovables();
+    }
+    if (col.gameObject.tag == "Movable") {
+      MovableScript m = col.gameObject.GetComponent<MovableScript>();
+      gs.SetCurrentMovable(m);
     }
   }
 
@@ -206,30 +181,10 @@ public class Player2D : MonoBehaviour {
     this.transform.position = pos;
   }
 
-
-  /**************************************************************/
-  /*                      LEVEL CONTROLS                        */
-  /**************************************************************/
-
-  string[] levels = 
-    new string[6] {"ThroneRoom",
-                   "Tutorial",
-                   "OutsideCastle",
-                   "Level1",
-                   "Level2",
-                   "PathToCliffside"};
-
-  void ChangeLevels() {
-    int idx = Array.IndexOf(levels, Application.loadedLevelName);
-    Application.LoadLevel(levels[idx+1]);
-  }
-
-
   /**************************************************************/
   /*                      UTIL FUNCTIONS                        */
   /**************************************************************/
 
-  // Perhaps put this in a utility function file?
   bool approxEquals(float x, float y, float threshold = 0.001f) {
     return Mathf.Abs(x-y) <= threshold;
   }
