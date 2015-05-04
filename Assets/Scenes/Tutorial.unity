@@ -73,7 +73,6 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
-    tileSizeHint: 0
   m_NavMesh: {fileID: 0}
 --- !u!1001 &115134068
 Prefab:
@@ -145,8 +144,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: e4eb0f695cbd9604d910c8f23a23b6d0, type: 2}
   m_IsTrigger: 0
-  m_Size: {x: 57.1219025, y: 5.34463501}
-  m_Center: {x: 2.24504852, y: 1.29079437}
+  m_Size: {x: 89.5585098, y: 5.34463501}
+  m_Center: {x: 3.03345871, y: 1.29079437}
 --- !u!4 &185946684
 Transform:
   m_ObjectHideFlags: 0
@@ -239,9 +238,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextLevelName: Level1
-  checkPoints: []
   screenLeftBound: .0199999996
   screenRightBound: .980000019
+  checkPoints: []
+  beginMargin: .5
+  state: 0
 --- !u!4 &453125082
 Transform:
   m_ObjectHideFlags: 0
@@ -403,6 +404,7 @@ GameObject:
   - 4: {fileID: 1277155432}
   - 82: {fileID: 1277155431}
   - 114: {fileID: 1277155430}
+  - 81: {fileID: 1277155433}
   m_Layer: 0
   m_Name: BackgroundMusic1
   m_TagString: BackgroundMusic
@@ -489,10 +491,18 @@ Transform:
   m_GameObject: {fileID: 1277155429}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .0199999996, y: 0, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
+--- !u!81 &1277155433
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 8129722, guid: f78dbe2904b6cf04e8673b55533efc1d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1518547149}
+  m_GameObject: {fileID: 1277155429}
+  m_Enabled: 1
 --- !u!1001 &1351678125
 Prefab:
   m_ObjectHideFlags: 0
@@ -506,7 +516,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 442480, guid: 360410e0386d7dd4998721fada5b70ef, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -9.56000042
+      value: -9.15999985
       objectReference: {fileID: 0}
     - target: {fileID: 442480, guid: 360410e0386d7dd4998721fada5b70ef, type: 2}
       propertyPath: m_LocalPosition.z
@@ -808,7 +818,7 @@ Transform:
   m_PrefabInternal: {fileID: 1351678125}
   m_GameObject: {fileID: 1734301072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.9499998, y: -9.56000042, z: 1}
+  m_LocalPosition: {x: -10.9499998, y: -9.15999985, z: 1}
   m_LocalScale: {x: .400000006, y: .5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -898,7 +908,6 @@ GameObject:
   - 61: {fileID: 1940055921}
   - 114: {fileID: 1940055915}
   - 95: {fileID: 1940055925}
-  - 81: {fileID: 1940055924}
   m_Layer: 8
   m_Name: Dug
   m_TagString: Untagged
@@ -1031,14 +1040,6 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: 3.9284296, y: 1.08512759}
   m_Center: {x: -.0735473633, y: 1.3976717}
---- !u!81 &1940055924
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8182114, guid: 2a1ac0e3a3e1fc74890613249fb9606f,
-    type: 2}
-  m_PrefabInternal: {fileID: 780621647}
-  m_GameObject: {fileID: 1940055914}
-  m_Enabled: 1
 --- !u!95 &1940055925
 Animator:
   serializedVersion: 3

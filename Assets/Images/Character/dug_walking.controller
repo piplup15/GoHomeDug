@@ -5,19 +5,19 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Dug-walking
+  m_Name: dug_walking
   serializedVersion: 2
   m_AnimatorParameters:
   - m_Name: isIdle
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
-    m_DefaultBool: 1
+    m_DefaultBool: 0
     m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 3
     m_Name: Base Layer
-    m_StateMachine: {fileID: 110756458}
+    m_StateMachine: {fileID: 110785496}
     m_Mask: {fileID: 0}
     m_BlendingMode: 0
     m_SyncedLayerIndex: -1
@@ -26,35 +26,15 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
---- !u!1101 &110112784
+--- !u!1101 &110123352
 Transition:
   serializedVersion: 2
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
-  m_SrcState: {fileID: 110256458}
-  m_DstState: {fileID: 110256458}
-  m_TransitionDuration: 0
-  m_TransitionOffset: 0
-  m_Conditions:
-  - m_ConditionMode: 5
-    m_ConditionEvent: 
-    m_EventTreshold: 0
-    m_ExitTime: 1
-  m_Atomic: 1
-  m_Solo: 0
-  m_Mute: 0
-  m_CanTransitionToSelf: 0
---- !u!1101 &110148534
-Transition:
-  serializedVersion: 2
-  m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 
-  m_SrcState: {fileID: 110256458}
-  m_DstState: {fileID: 110221718}
+  m_SrcState: {fileID: 110285496}
+  m_DstState: {fileID: 110216950}
   m_TransitionDuration: 0
   m_TransitionOffset: 0
   m_Conditions:
@@ -66,78 +46,78 @@ Transition:
   m_Solo: 0
   m_Mute: 0
   m_CanTransitionToSelf: 0
---- !u!1101 &110197136
+--- !u!1101 &110152072
 Transition:
   serializedVersion: 2
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: 
-  m_SrcState: {fileID: 110221718}
-  m_DstState: {fileID: 110256458}
-  m_TransitionDuration: 0
+  m_SrcState: {fileID: 110216950}
+  m_DstState: {fileID: 110285496}
+  m_TransitionDuration: .25
   m_TransitionOffset: 0
   m_Conditions:
   - m_ConditionMode: 2
     m_ConditionEvent: isIdle
     m_EventTreshold: 0
-    m_ExitTime: 1
+    m_ExitTime: .75
   m_Atomic: 1
   m_Solo: 0
   m_Mute: 0
   m_CanTransitionToSelf: 0
---- !u!1102 &110221718
+--- !u!1102 &110216950
 State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: DugIdle
+  m_Name: dug_standing
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: 7b08afcb1ba3013448efb58b43a7a4d1, type: 2}
-  m_ParentStateMachine: {fileID: 110756458}
+  - {fileID: 7400000, guid: 0466588094437b248a51caf861cbad44, type: 2}
+  m_ParentStateMachine: {fileID: 110785496}
   m_Position: {x: 48, y: 168, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
---- !u!1102 &110256458
+--- !u!1102 &110285496
 State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Dug-walking
+  m_Name: dug_walking
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: 8b76181d07e67074d9484e6e5ab8dc7d, type: 2}
-  m_ParentStateMachine: {fileID: 110756458}
-  m_Position: {x: 48, y: 12, z: 0}
+  - {fileID: 7400000, guid: 0cb9769920648b54ba8a9c169a001938, type: 2}
+  m_ParentStateMachine: {fileID: 110785496}
+  m_Position: {x: 48, y: 60, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
---- !u!1107 &110756458
+--- !u!1107 &110785496
 StateMachine:
   serializedVersion: 2
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Base Layer
-  m_DefaultState: {fileID: 110256458}
+  m_DefaultState: {fileID: 110285496}
   m_States:
-  - {fileID: 110256458}
-  - {fileID: 110221718}
+  - {fileID: 110285496}
+  - {fileID: 110216950}
   m_ChildStateMachine: []
   m_ChildStateMachinePosition: []
   m_OrderedTransitions:
     data:
-      first: {fileID: 110221718}
+      first: {fileID: 110216950}
       second:
-      - {fileID: 110197136}
+      - {fileID: 110152072}
     data:
-      first: {fileID: 110256458}
+      first: {fileID: 110285496}
       second:
-      - {fileID: 110148534}
+      - {fileID: 110123352}
   m_MotionSetCount: 1
-  m_AnyStatePosition: {x: -48, y: -108, z: 0}
+  m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
