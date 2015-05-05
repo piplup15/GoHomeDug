@@ -12,6 +12,7 @@ public class GameState : MonoBehaviour {
   public float beginMovableScreenOffsetY = 0.62f;
 
   GameObject[] movableObjects;
+  GameObject[] enemies;
   int checkPointIdx = -1;
 
   GameObject player;
@@ -21,7 +22,7 @@ public class GameState : MonoBehaviour {
   public State state = State.BEGIN;
 
   float endTimer = 2.0f;
-  float respawnTime = 0.0f;
+  float respawnTime = 3.0f;
   float respawnTimer;
 
   MovableScript currentMovable;
@@ -43,6 +44,7 @@ public class GameState : MonoBehaviour {
     this.player = GameObject.Find("Dug");
     this.playerScript = this.player.GetComponent<Player2D>();
     this.movableObjects = GameObject.FindGameObjectsWithTag("Movable");
+    this.enemies = GameObject.FindGameObjectsWithTag("Enemy");
   }
 
   void FixedUpdate() {
@@ -69,6 +71,7 @@ public class GameState : MonoBehaviour {
     if (this.respawnTimer == 0.0f) {
       respawnTimer = respawnTime;
       this.state = State.PLAY;
+      TurnOnEnemyColliders(true);
       if (checkPointIdx == -1) {
         player.transform.position = playerScript.GetStartPosition();
       } else {
@@ -99,10 +102,12 @@ public class GameState : MonoBehaviour {
       float shiftamt = this.currentMovable.GetShiftAmt();
       string axis = this.currentMovable.GetAxis();
       this.currentMovable.TranslateAmtInDir(shiftamt, axis);
+      this.currentMovable.GetAnimator().SetBool("isIdle", false);
       playerScript.TranslateAmtInDir(shiftamt, axis);
       playerScript.SetGrounded(true);
     } else {
       this.currentMovable.GetAudioSource().Stop();
+      this.currentMovable.GetAnimator().SetBool("isIdle", true);
       this.currentMovable = null;
       this.state = State.PLAY;
     }
@@ -111,6 +116,14 @@ public class GameState : MonoBehaviour {
   public void ResetMovables() {
     foreach (GameObject movable in this.movableObjects) {
       movable.GetComponent<MovableScript>().Reset(checkPointIdx);
+    }
+  }
+
+  public void TurnOnEnemyColliders(bool on) {
+    foreach (GameObject enemy in this.enemies) {
+      foreach (Collider2D c in enemy.GetComponents<Collider2D>()) {
+        c.enabled = on;
+      }
     }
   }
 
