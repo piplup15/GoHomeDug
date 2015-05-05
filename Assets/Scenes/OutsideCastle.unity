@@ -242,6 +242,9 @@ MonoBehaviour:
   screenLeftBound: .0199999996
   screenRightBound: .980000019
   checkPoints: []
+  beginMargin: .5
+  beginMovableScreenOffsetY: .620000005
+  state: 0
 --- !u!4 &362502640
 Transform:
   m_ObjectHideFlags: 0
@@ -618,13 +621,12 @@ GameObject:
   - 4: {fileID: 1618559697}
   - 212: {fileID: 1618559696}
   - 50: {fileID: 1618559695}
-  - 61: {fileID: 1618559694}
-  - 58: {fileID: 1618559693}
+  - 114: {fileID: 1618559689}
+  - 95: {fileID: 1618559699}
+  - 61: {fileID: 1618559693}
   - 61: {fileID: 1618559692}
   - 61: {fileID: 1618559691}
   - 61: {fileID: 1618559690}
-  - 114: {fileID: 1618559689}
-  - 95: {fileID: 1618559699}
   m_Layer: 8
   m_Name: Dug
   m_TagString: Untagged
@@ -649,63 +651,51 @@ MonoBehaviour:
 --- !u!61 &1618559690
 BoxCollider2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6133430, guid: 2a1ac0e3a3e1fc74890613249fb9606f,
+  m_PrefabParentObject: {fileID: 6159730, guid: 2a1ac0e3a3e1fc74890613249fb9606f,
     type: 2}
   m_PrefabInternal: {fileID: 16473936}
   m_GameObject: {fileID: 1618559688}
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: e4eb0f695cbd9604d910c8f23a23b6d0, type: 2}
   m_IsTrigger: 0
-  m_Size: {x: 2.31007171, y: 1.05569541}
-  m_Center: {x: .735626221, y: 2.97189236}
+  m_Size: {x: 1.19722664, y: .560479164}
+  m_Center: {x: -.186386108, y: 3.14914703}
 --- !u!61 &1618559691
 BoxCollider2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6133432, guid: 2a1ac0e3a3e1fc74890613249fb9606f,
+  m_PrefabParentObject: {fileID: 6159728, guid: 2a1ac0e3a3e1fc74890613249fb9606f,
     type: 2}
   m_PrefabInternal: {fileID: 16473936}
   m_GameObject: {fileID: 1618559688}
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: e4eb0f695cbd9604d910c8f23a23b6d0, type: 2}
   m_IsTrigger: 0
-  m_Size: {x: 3.31055284, y: .879160166}
-  m_Center: {x: .235404968, y: 2.17742443}
+  m_Size: {x: 2.38845873, y: 1.27536392}
+  m_Center: {x: -.300946236, y: 2.45280385}
 --- !u!61 &1618559692
 BoxCollider2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6133434, guid: 2a1ac0e3a3e1fc74890613249fb9606f,
+  m_PrefabParentObject: {fileID: 6159726, guid: 2a1ac0e3a3e1fc74890613249fb9606f,
     type: 2}
   m_PrefabInternal: {fileID: 16473936}
   m_GameObject: {fileID: 1618559688}
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: e4eb0f695cbd9604d910c8f23a23b6d0, type: 2}
   m_IsTrigger: 0
-  m_Size: {x: 3.9284296, y: 1.08512759}
-  m_Center: {x: -.0735473633, y: 1.3976717}
---- !u!58 &1618559693
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 5830710, guid: 2a1ac0e3a3e1fc74890613249fb9606f,
-    type: 2}
-  m_PrefabInternal: {fileID: 16473936}
-  m_GameObject: {fileID: 1618559688}
-  m_Enabled: 0
-  m_Material: {fileID: 6200000, guid: e4eb0f695cbd9604d910c8f23a23b6d0, type: 2}
-  m_IsTrigger: 0
-  m_Radius: 2.5036087
-  m_Center: {x: -.200000003, y: -3}
---- !u!61 &1618559694
+  m_Size: {x: 3.32397938, y: 1.77504301}
+  m_Center: {x: -.0970494747, y: 1.4312923}
+--- !u!61 &1618559693
 BoxCollider2D:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 6130710, guid: 2a1ac0e3a3e1fc74890613249fb9606f,
+  m_PrefabParentObject: {fileID: 6159724, guid: 2a1ac0e3a3e1fc74890613249fb9606f,
     type: 2}
   m_PrefabInternal: {fileID: 16473936}
   m_GameObject: {fileID: 1618559688}
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: e4eb0f695cbd9604d910c8f23a23b6d0, type: 2}
   m_IsTrigger: 0
-  m_Size: {x: 4.79624271, y: 4.70062256}
-  m_Center: {x: -.497349352, y: -1.25579834}
+  m_Size: {x: 4.06220341, y: 5.12601471}
+  m_Center: {x: -.0354657881, y: -1.49247313}
 --- !u!50 &1618559695
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -743,7 +733,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2bee12106cdcc3245a5b1f0ebf8ea175, type: 3}
+  m_Sprite: {fileID: 21300000, guid: adb00fa9de4b26a4f9788f07379f8a12, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1618559697
 Transform:
@@ -767,7 +757,7 @@ Animator:
   m_GameObject: {fileID: 1618559688}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 691870fd5be6f60458459b2df03682aa, type: 2}
+  m_Controller: {fileID: 9100000, guid: 80c6d4e3289203b40978e793df4c9aa3, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
