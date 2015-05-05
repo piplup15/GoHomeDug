@@ -11,6 +11,7 @@ public class Player2D : MonoBehaviour {
   public float maxSpeed = 8f;
   public float jumpVelocity = 14f;
   float scaleSize;
+  Vector3 prevVelocity;
 
   // Animation-related variables
   Animator animator;
@@ -69,10 +70,13 @@ public class Player2D : MonoBehaviour {
       this.animator.SetBool("isIdle", false);
     } else if (gs.GetState() == GameState.State.NOCONTROLS) {
       vel.x = 0.0f;
-      vel.y = 0.0f;
       RestrictXVelocity(left, right, ref vel);
       this.animator.SetBool("isIdle", true);
+    } else if (gs.GetState() == GameState.State.RESPAWN) {
+      vel.x = 0.0f;
+      this.animator.SetBool("isIdle", true);
     }
+    prevVelocity = vel;
     rigidbody2D.velocity = vel;
   }
 
@@ -146,7 +150,6 @@ public class Player2D : MonoBehaviour {
     this.grounded = grounded;
   }
 
-
   // Change direction of character.
   void ChangeScaleX(float dir) {
     Vector3 scale = transform.localScale;
@@ -178,7 +181,12 @@ public class Player2D : MonoBehaviour {
   void OnCollisionEnter2D (Collision2D col) {
     if (col.gameObject.tag == "Enemy") {
       gs.SetState(GameState.State.RESPAWN);
-      this.gs.ResetMovables();
+      gs.ResetMovables();
+      if (col.contacts[0].normal.y < 0.9f) {
+        prevVelocity.y = 0;
+      }
+      this.rigidbody2D.velocity = prevVelocity;
+      gs.TurnOnEnemyColliders(false);
     }
     if (col.gameObject.tag == "Movable") {
       if (col.contacts[0].normal.y > 0.9f) {
