@@ -2,13 +2,13 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class voice : MonoBehaviour {
+public class address : MonoBehaviour {
 	GUIStyle style;
 	bool triggered;
 	Text dialogue;
 	GameState state;
 	bool fade; //true is in, false is out
-
+	
 	// Use this for initialization
 	void Start () {
 		triggered = false;
@@ -31,7 +31,7 @@ public class voice : MonoBehaviour {
 					//print ("dialogue.color.a >= 1");
 				}
 			}
-		
+			
 			else { //or text fades out
 				state.SetState (GameState.State.PLAY);
 				Color c = dialogue.color;
@@ -46,12 +46,12 @@ public class voice : MonoBehaviour {
 				}
 			}
 		}
-
+		
 	}
-
-
+	
+	
 	void OnTriggerEnter2D(Collider2D other) {
-		if (other.tag == "Dug") {
+		if (other.tag == "God") {
 			triggered = true;
 			if (other.gameObject.GetComponent<Text> () != dialogue) {
 				dialogue = other.gameObject.GetComponent<Text> ();
@@ -62,6 +62,6 @@ public class voice : MonoBehaviour {
 			}
 		}
 	}
-
-
+	
+	
 }

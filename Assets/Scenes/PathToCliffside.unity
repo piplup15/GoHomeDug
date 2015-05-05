@@ -219,7 +219,6 @@ GameObject:
   - 222: {fileID: 130379453}
   - 114: {fileID: 130379452}
   - 61: {fileID: 130379451}
-  - 114: {fileID: 130379454}
   - 50: {fileID: 130379455}
   m_Layer: 5
   m_Name: Walk, Dug.
@@ -288,17 +287,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 130379449}
---- !u!114 &130379454
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 130379449}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c12b60d72109b04da7307ef0c7a3630, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &130379455
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -326,7 +314,6 @@ GameObject:
   - 114: {fileID: 132862814}
   - 61: {fileID: 132862813}
   - 50: {fileID: 132862816}
-  - 114: {fileID: 132862817}
   m_Layer: 5
   m_Name: "There\u2019s no going back, Dug."
   m_TagString: God
@@ -409,17 +396,6 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!114 &132862817
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 132862811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c12b60d72109b04da7307ef0c7a3630, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &400696647
 GameObject:
   m_ObjectHideFlags: 0
@@ -530,7 +506,6 @@ GameObject:
   - 114: {fileID: 803798693}
   - 61: {fileID: 803798692}
   - 50: {fileID: 803798696}
-  - 114: {fileID: 803798697}
   m_Layer: 5
   m_Name: "You\u2019ve got other things to do, to play, Dug."
   m_TagString: God
@@ -613,17 +588,6 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!114 &803798697
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 803798691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c12b60d72109b04da7307ef0c7a3630, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &840663259
 GameObject:
   m_ObjectHideFlags: 0
@@ -907,7 +871,6 @@ GameObject:
   - 114: {fileID: 1075561093}
   - 61: {fileID: 1075561092}
   - 50: {fileID: 1075561095}
-  - 114: {fileID: 1075561096}
   m_Layer: 5
   m_Name: "Don\u2019t you want to see how it ends, Dug?"
   m_TagString: God
@@ -990,17 +953,6 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!114 &1075561096
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1075561090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c12b60d72109b04da7307ef0c7a3630, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1090292935
 GameObject:
   m_ObjectHideFlags: 0
@@ -1143,6 +1095,7 @@ MonoBehaviour:
   screenRightBound: .980000019
   checkPoints: []
   beginMargin: 25
+  beginMovableScreenOffsetY: .620000005
   state: 0
 --- !u!4 &1152614336
 Transform:
@@ -1471,7 +1424,6 @@ GameObject:
   - 114: {fileID: 1540818908}
   - 61: {fileID: 1540818907}
   - 50: {fileID: 1540818910}
-  - 114: {fileID: 1540818911}
   m_Layer: 5
   m_Name: "It doesn\u2019t matter what he thinks, Dug. "
   m_TagString: God
@@ -1554,17 +1506,6 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!114 &1540818911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1540818905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c12b60d72109b04da7307ef0c7a3630, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1577264786
 GameObject:
   m_ObjectHideFlags: 0
@@ -1655,7 +1596,6 @@ GameObject:
   - 114: {fileID: 1592512582}
   - 61: {fileID: 1592512581}
   - 50: {fileID: 1592512584}
-  - 114: {fileID: 1592512585}
   m_Layer: 5
   m_Name: What else can you do, Dug?
   m_TagString: God
@@ -1738,17 +1678,6 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
---- !u!114 &1592512585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1592512579}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c12b60d72109b04da7307ef0c7a3630, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1644421461
 GameObject:
   m_ObjectHideFlags: 0
@@ -1766,6 +1695,8 @@ GameObject:
   - 61: {fileID: 1644421465}
   - 61: {fileID: 1644421462}
   - 114: {fileID: 1644421468}
+  - 114: {fileID: 1644421469}
+  - 114: {fileID: 1644421473}
   m_Layer: 8
   m_Name: Dug
   m_TagString: Untagged
@@ -1862,6 +1793,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 131ba898ea1dee948865fd534ac8ccef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1644421469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1644421461}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c12b60d72109b04da7307ef0c7a3630, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &1644421470
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -1913,6 +1855,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!114 &1644421473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1644421461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdb0f23979ac33740b580b42d552bb8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1691305014
 GameObject:
   m_ObjectHideFlags: 0
