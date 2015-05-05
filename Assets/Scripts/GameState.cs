@@ -99,10 +99,12 @@ public class GameState : MonoBehaviour {
       float shiftamt = this.currentMovable.GetShiftAmt();
       string axis = this.currentMovable.GetAxis();
       this.currentMovable.TranslateAmtInDir(shiftamt, axis);
+      this.currentMovable.GetAnimator().SetBool("isIdle", false);
       playerScript.TranslateAmtInDir(shiftamt, axis);
       playerScript.SetGrounded(true);
     } else {
       this.currentMovable.GetAudioSource().Stop();
+      this.currentMovable.GetAnimator().SetBool("isIdle", true);
       this.currentMovable = null;
       this.state = State.PLAY;
     }

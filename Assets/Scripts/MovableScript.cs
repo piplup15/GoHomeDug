@@ -15,6 +15,7 @@ public class MovableScript : MonoBehaviour {
   public ResetStatus resetStatus = ResetStatus.ALWAYS_DEFAULT;
 
   AudioSource audioSource;
+  Animator animator;
 
   float distance = 0.0f;
   int defaultDirection;
@@ -24,6 +25,7 @@ public class MovableScript : MonoBehaviour {
 
   void Awake() {
     audioSource = GetComponent<AudioSource>();
+    animator = GetComponent<Animator>();
     defaultDirection = direction;
     defaultPosition = this.transform.position;
     usedPosition = this.transform.position;
@@ -95,6 +97,10 @@ public class MovableScript : MonoBehaviour {
 
   public string GetAxis() {
     return this.axis;
+  }
+
+  public Animator GetAnimator() {
+    return this.animator;
   }
 
 }
