@@ -9,8 +9,9 @@ public class MovableScript : MonoBehaviour {
   public string axis = "y";
   public int direction = -1;
   public int checkPointIdx = -1;
+  public bool used = false;
 
-  public enum ResetStatus {ALWAYS_DEFAULT, BASED_ON_CHECKPOINT}
+  public enum ResetStatus {ALWAYS_DEFAULT, BASED_ON_CHECKPOINT, ONE_TIME}
   public ResetStatus resetStatus = ResetStatus.ALWAYS_DEFAULT;
 
   AudioSource audioSource;
@@ -42,6 +43,11 @@ public class MovableScript : MonoBehaviour {
     }
     this.transform.position = pos;
     distance += Mathf.Abs(amt);
+    this.used = true;
+  }
+
+  public bool IsUsable() {
+    return !(this.used && this.resetStatus == ResetStatus.ONE_TIME);
   }
 
   public AudioSource GetAudioSource() {
@@ -55,6 +61,8 @@ public class MovableScript : MonoBehaviour {
   public void Reset(int cpIdx) {
     if (resetStatus == ResetStatus.ALWAYS_DEFAULT) {
       ResetToDefaultPosition();
+    } else if (resetStatus == ResetStatus.ONE_TIME) {
+      ResetToUsedPosition();
     } else {
       if (this.checkPointIdx < cpIdx) {
         ResetToUsedPosition();
@@ -88,4 +96,5 @@ public class MovableScript : MonoBehaviour {
   public string GetAxis() {
     return this.axis;
   }
+
 }

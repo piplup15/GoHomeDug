@@ -5,12 +5,9 @@ public class AudioSurround : MonoBehaviour {
 
   GameObject player;
 
-  void Awake () {
-    DontDestroyOnLoad(transform.gameObject);
-  }
-
   // Use this for initialization
   void Start () {
+    DontDestroyOnLoad(transform.gameObject);
     player = GameObject.Find("Dug");
     GameObject[] musicList = GameObject.FindGameObjectsWithTag("BackgroundMusic"); // At most
     if (musicList.Length == 2) {

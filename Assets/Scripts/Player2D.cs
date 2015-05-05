@@ -28,11 +28,14 @@ public class Player2D : MonoBehaviour {
   // Use this for finding references to other components
   void Start () {
     this.gs = GameObject.FindGameObjectWithTag("GameState").GetComponent<GameState>();
-    if (gs.GetState() == GameState.State.BEGIN) {
+    if (gs.GetState() == GameState.State.BEGIN || gs.GetState() == GameState.State.BEGIN_ON_MOVABLE) {
       Vector3 pos = Camera.main.WorldToViewportPoint (this.transform.position);
       pos.x = 1.02f;
+      if (gs.GetState() == GameState.State.BEGIN_ON_MOVABLE) {
+        pos.y = gs.GetBeginMovableScreenOffsetY();
+      }
       this.transform.position = Camera.main.ViewportToWorldPoint(pos);
-    }
+    }  
   }
 
   // Update is called once per frame
@@ -55,16 +58,14 @@ public class Player2D : MonoBehaviour {
       DampenXVelocity(left, right, ref vel);
       RestrictXVelocity(left, right, ref vel);
       TestCharacterGrounded(vel);
-    } else if (gs.GetState() == GameState.State.BEGIN) {
-      vel.x = -this.maxSpeed; // Dug enters from right screen
-      vel.y = 0.0f;
+    } else if (gs.GetState() == GameState.State.BEGIN || gs.GetState() == GameState.State.BEGIN_ON_MOVABLE) {
+      vel.x = (gs.GetState() == GameState.State.BEGIN) ? -this.maxSpeed : 0.0f; // Dug enters from right screen
       this.animator.SetBool("isIdle", false);
       if (this.transform.position.x < this.startPosition.x + gs.GetBeginMargin()) {
         gs.SetState(GameState.State.PLAY);
       }
     } else if (gs.GetState() == GameState.State.END) {
       vel.x = -this.maxSpeed; // Dug leaves left screen
-      vel.y = 0.0f;
       this.animator.SetBool("isIdle", false);
     } else if (gs.GetState() == GameState.State.NOCONTROLS) {
       vel.x = 0.0f;
@@ -163,8 +164,12 @@ public class Player2D : MonoBehaviour {
 
   void OnCollisionExit2D (Collision2D col) {
     if (col.gameObject.tag == "Movable") {
-      MovableScript m = col.gameObject.GetComponent<MovableScript>();
-      m.ResetFlip();
+      if (col.contacts[0].normal.y > 0.9f) {
+        MovableScript m = col.gameObject.GetComponent<MovableScript>();
+        if (m.IsUsable()) {
+          m.ResetFlip();
+        }
+      }
     }
   }
 
@@ -176,8 +181,12 @@ public class Player2D : MonoBehaviour {
       this.gs.ResetMovables();
     }
     if (col.gameObject.tag == "Movable") {
-      MovableScript m = col.gameObject.GetComponent<MovableScript>();
-      gs.SetCurrentMovable(m);
+      if (col.contacts[0].normal.y > 0.9f) {
+        MovableScript m = col.gameObject.GetComponent<MovableScript>();
+        if (m.IsUsable()) {
+          gs.SetCurrentMovable(m);
+        }
+      }
     }
   }
 
