@@ -7,7 +7,8 @@ TagManager:
   - Movable
   - BackgroundMusic
   - GameState
-  - 
+  - God
+  - Dug
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX
