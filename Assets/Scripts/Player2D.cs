@@ -186,7 +186,7 @@ public class Player2D : MonoBehaviour {
         prevVelocity.y = 0;
       }
       this.rigidbody2D.velocity = prevVelocity;
-      gs.TurnOnEnemyColliders(false);
+      gs.TurnOnEnemyColliders(false); // probably should have used a trigger.....
     }
     if (col.gameObject.tag == "Movable") {
       if (col.contacts[0].normal.y > 0.9f) {
@@ -198,8 +198,9 @@ public class Player2D : MonoBehaviour {
     }
   }
 
-  public void ResetVelocity() {
+  public void Reset() {
     this.rigidbody2D.velocity = new Vector2(0.0f, 0.0f);
+    ChangeScaleX(1.0f); // Make dug face left
   }
 
   // Translate amt units in a direction

@@ -13,6 +13,7 @@ public class GameState : MonoBehaviour {
 
   GameObject[] movableObjects;
   GameObject[] enemies;
+  GameObject[] arrows;
   int checkPointIdx = -1;
 
   GameObject player;
@@ -45,6 +46,7 @@ public class GameState : MonoBehaviour {
     this.playerScript = this.player.GetComponent<Player2D>();
     this.movableObjects = GameObject.FindGameObjectsWithTag("Movable");
     this.enemies = GameObject.FindGameObjectsWithTag("Enemy");
+    this.arrows = GameObject.FindGameObjectsWithTag("Checkpoint");
   }
 
   void FixedUpdate() {
@@ -77,7 +79,7 @@ public class GameState : MonoBehaviour {
       } else {
         player.transform.position = this.checkPoints[checkPointIdx];
       }
-      playerScript.ResetVelocity();
+      playerScript.Reset();
     }
   }
 
@@ -86,9 +88,23 @@ public class GameState : MonoBehaviour {
       if (approxEquals(player.transform.position.x, checkPoints[i].x, 1.0f)) {
         if (approxEquals(player.transform.position.y, checkPoints[i].y, 10.0f)) {
           checkPointIdx = Mathf.Max(checkPointIdx, i);
+          FindClosestCheckpointObject().GetComponent<Animator>().SetBool("hasSpun", true);
         }
       }
     }
+  }
+
+  GameObject FindClosestCheckpointObject() {
+    float bestDist = 99999f; // should be large enough
+    GameObject bestArrow = null;
+    foreach (GameObject arrow in this.arrows) {
+      float dist = ManhattanDistance2D(arrow.transform.position, player.transform.position);
+      if (dist < bestDist) {
+        bestDist = dist;
+        bestArrow = arrow;
+      }
+    }
+    return bestArrow;
   }
 
   public void SetCurrentMovable(MovableScript m) {
@@ -154,5 +170,9 @@ public class GameState : MonoBehaviour {
 
   public float GetBeginMovableScreenOffsetY() {
     return beginMovableScreenOffsetY;
+  }
+
+  float ManhattanDistance2D(Vector3 v1, Vector3 v2) {
+    return Mathf.Abs(v1.x - v2.x) + Mathf.Abs(v1.y - v2.y);
   }
 }
