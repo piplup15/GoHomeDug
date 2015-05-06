@@ -194,7 +194,7 @@ public class Player2D : MonoBehaviour {
     if (makeTransparent) {
       this.sr.color = new Color(1.0f, 1.0f, 1.0f, Mathf.Max(this.sr.color.a - 0.02f, 0.0f));
     } else { 
-      this.sr.color = new Color(1.0f, 1.0f, 1.0f, Mathf.Min(this.sr.color.a + 0.05f, 1.0f));
+      this.sr.color = new Color(1.0f, 1.0f, 1.0f, Mathf.Min(this.sr.color.a + 0.02f, 1.0f));
     }
   }
 
