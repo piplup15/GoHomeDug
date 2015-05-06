@@ -66,6 +66,9 @@ public class GameState : MonoBehaviour {
   void HandleEndGameTimer() {
     this.endTimer = Mathf.Max(0.0f, this.endTimer - Time.deltaTime);
     if (this.endTimer == 0.0f) {
+      if (Application.loadedLevelName == "Level3") {
+        Destroy(GameObject.FindGameObjectWithTag("BackgroundMusic")); // hack to turn off music from lvl 3
+      }
       Application.LoadLevel(this.nextLevelName);
     }
   }
