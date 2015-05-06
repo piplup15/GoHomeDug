@@ -230,7 +230,6 @@ public class Player2D : MonoBehaviour {
   void OnCollisionEnter2D (Collision2D col) {
     if (col.gameObject.tag == "Enemy") {
       gs.SetState(GameState.State.RESPAWN);
-      gs.ResetMovables();
       if (col.contacts[0].normal.y < 0.9f) {
         prevVelocity.y = 0;
       }
@@ -258,6 +257,7 @@ public class Player2D : MonoBehaviour {
     this.rigidbody2D.velocity = new Vector2(0.0f, 0.0f);
     ChangeScaleX(1.0f); // Make dug face left
     this.respawnAudio.Play();
+    gs.ResetMovables();
   }
 
   // Translate amt units in a direction
