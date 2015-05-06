@@ -5,7 +5,6 @@ using System.Collections;
 public class Player2D : MonoBehaviour {
 
   // Movement-related variables
-  bool grounded = false;
   Vector3 startPosition;
   float deltaVx = 0.5f;
   public float maxSpeed = 8f;
@@ -19,12 +18,31 @@ public class Player2D : MonoBehaviour {
   // Game state
   GameState gs;
 
+  // Audiosources
+  AudioSource walkAudio;
+  AudioSource jumpAudio;
+  AudioSource jumpLandAudio;
+
   // Use this for initialization
   void Awake () {
     this.scaleSize = this.transform.localScale.x;
     this.startPosition = this.transform.position;
     this.animator = GetComponent<Animator>();
+    FindAudioSources();
   }
+
+  void FindAudioSources() {
+    foreach (AudioSource audio in GetComponents<AudioSource>()) {
+      if (audio.clip.name == "Walking.mp3") {
+        this.walkAudio = audio;
+      } else if (audio.clip.name == "Jump.mp3") {
+        this.jumpAudio = audio;
+      } else if (audio.clip.name == "Jump_Landing.mp3") {
+        this.jumpLandAudio = audio;
+      }
+    }
+  }
+
 
   // Use this for finding references to other components
   void Start () {
@@ -42,6 +60,7 @@ public class Player2D : MonoBehaviour {
   // Update is called once per frame
   void FixedUpdate() {
     UpdateVelocities();
+    PlayAudio();
   }
 
   /**************************************************************/
@@ -92,15 +111,17 @@ public class Player2D : MonoBehaviour {
       ChangeScaleX(1.0f);
       this.animator.SetBool("isIdle", false);
     }
-    if (up && this.grounded) {
+    if (up && this.animator.GetBool("grounded")) {
       vel.y = jumpVelocity;
-      this.grounded = false;
+      this.animator.SetBool("grounded", false);
+      this.animator.SetBool("justJumped", true);
+      this.jumpAudio.Play();
     }
   }
 
   // Dampen x velocity if left and keys are not pressed and character is on floor.
   void DampenXVelocity(bool left, bool right, ref Vector3 vel) {
-    if (!right && !left && this.grounded) {
+    if (!right && !left && this.animator.GetBool("grounded")) {
       if (vel.x < 0) {
         vel.x = Mathf.Min(vel.x + deltaVx, 0.0f);
       } else {
@@ -116,10 +137,10 @@ public class Player2D : MonoBehaviour {
   void RestrictXVelocity(bool left, bool right, ref Vector3 vel) {
     Vector3 pos = Camera.main.WorldToViewportPoint (this.transform.position);
     if (pos.x <= gs.GetScreenLeftBound()) {
-      if (left || (!this.grounded && vel.x < 0)) {
+      if (left || (!this.animator.GetBool("grounded") && vel.x < 0)) {
         vel.x = 0.0f;
       }
-      if (this.grounded) {
+      if (this.animator.GetBool("grounded")) {
         if (gs.GetState() == GameState.State.PLAY) {
           gs.SetState(GameState.State.END); // regular ending, Dug walks left
         } else if (gs.GetState() == GameState.State.NOCONTROLS) {
@@ -127,7 +148,7 @@ public class Player2D : MonoBehaviour {
         }
       }
     } else if (pos.x >= gs.GetScreenRightBound()) {
-      if (right || (!this.grounded && vel.x > 0)) {
+      if (right || (!this.animator.GetBool("grounded") && vel.x > 0)) {
         vel.x = 0.0f;
       }
     } 
@@ -135,8 +156,18 @@ public class Player2D : MonoBehaviour {
 
   // Handle case where character falls off platform without jumping
   void TestCharacterGrounded(Vector3 vel) {
-    if (!approxEquals(vel.y, 0.0f, 0.1f) && grounded) {
-      this.grounded = false;
+    if (!approxEquals(vel.y, 0.0f, 0.1f) && this.animator.GetBool("grounded")) {
+      this.animator.SetBool("grounded", false);
+    }
+  }
+
+  void PlayAudio() {
+    if (!this.animator.GetBool("isIdle") && this.animator.GetBool("grounded")) {
+      if (!walkAudio.isPlaying) {
+        walkAudio.Play();
+      }
+    } else {
+      walkAudio.Stop();
     }
   }
 
@@ -147,7 +178,7 @@ public class Player2D : MonoBehaviour {
 
   // Set state of grounded flag
   public void SetGrounded(bool grounded) {
-    this.grounded = grounded;
+    this.animator.SetBool("grounded", grounded);
   }
 
   // Change direction of character.
@@ -160,7 +191,7 @@ public class Player2D : MonoBehaviour {
   void OnCollisionStay2D (Collision2D col) {
     foreach (ContactPoint2D c in col.contacts) {
       if (c.normal.y > 0.5f) {
-        this.grounded = true;
+        this.animator.SetBool("grounded", true);
       }
     }
   }
@@ -196,7 +227,12 @@ public class Player2D : MonoBehaviour {
         }
       }
     }
+    if (col.contacts[0].normal.y > 0.9f) {
+      this.animator.SetBool("justJumped", false);
+      this.jumpLandAudio.Play();
+    }
   }
+
 
   public void Reset() {
     this.rigidbody2D.velocity = new Vector2(0.0f, 0.0f);
