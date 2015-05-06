@@ -436,6 +436,10 @@ Prefab:
       propertyPath: nextLevelName
       value: ThroneRoom
       objectReference: {fileID: 0}
+    - target: {fileID: 11468172, guid: cf4c2233ada5fe248ad9942fa2e2d2d3, type: 2}
+      propertyPath: state
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cf4c2233ada5fe248ad9942fa2e2d2d3, type: 2}
   m_RootGameObject: {fileID: 1496184697}
@@ -450,11 +454,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 430710, guid: 2a1ac0e3a3e1fc74890613249fb9606f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 13.8000002
+      value: 13.3299999
       objectReference: {fileID: 0}
     - target: {fileID: 430710, guid: 2a1ac0e3a3e1fc74890613249fb9606f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 14.3000002
+      value: 16.2299995
       objectReference: {fileID: 0}
     - target: {fileID: 430710, guid: 2a1ac0e3a3e1fc74890613249fb9606f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -483,6 +487,18 @@ Prefab:
     - target: {fileID: 11430710, guid: 2a1ac0e3a3e1fc74890613249fb9606f, type: 2}
       propertyPath: disableRight
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 430710, guid: 2a1ac0e3a3e1fc74890613249fb9606f, type: 2}
+      propertyPath: m_LocalScale.x
+      value: .899999976
+      objectReference: {fileID: 0}
+    - target: {fileID: 430710, guid: 2a1ac0e3a3e1fc74890613249fb9606f, type: 2}
+      propertyPath: m_LocalScale.y
+      value: .899999976
+      objectReference: {fileID: 0}
+    - target: {fileID: 11430710, guid: 2a1ac0e3a3e1fc74890613249fb9606f, type: 2}
+      propertyPath: jumpVelocity
+      value: 14
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2a1ac0e3a3e1fc74890613249fb9606f, type: 2}
@@ -562,8 +578,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextLevelName: ThroneRoom
-  screenLeftBound: .0199999996
-  screenRightBound: .980000019
+  screenLeftBound: .0299999993
+  screenRightBound: .970000029
   checkPoints: []
   beginMargin: 20
   beginMovableScreenOffsetY: .620000005
@@ -601,9 +617,10 @@ GameObject:
   - 82: {fileID: 1530288471}
   - 82: {fileID: 1530288470}
   - 82: {fileID: 1530288469}
+  - 114: {fileID: 1530288474}
   m_Layer: 8
   m_Name: Dug
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -617,7 +634,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1530288459}
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: e4eb0f695cbd9604d910c8f23a23b6d0, type: 2}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Size: {x: 1.19722664, y: .560479164}
   m_Center: {x: -.186386108, y: 3.14914703}
 --- !u!61 &1530288461
@@ -687,6 +704,7 @@ MonoBehaviour:
   maxSpeed: 8
   jumpVelocity: 14
   disableRight: 1
+  disableJump: 0
 --- !u!50 &1530288466
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -733,8 +751,8 @@ Transform:
   m_PrefabInternal: {fileID: 1172798220}
   m_GameObject: {fileID: 1530288459}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.8000002, y: 14.3000002, z: 0}
-  m_LocalScale: {x: .400000006, y: .400000006, z: 1}
+  m_LocalPosition: {x: 13.3299999, y: 16.2299995, z: 0}
+  m_LocalScale: {x: .899999976, y: .899999976, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -982,6 +1000,18 @@ AudioListener:
   m_PrefabInternal: {fileID: 1172798220}
   m_GameObject: {fileID: 1530288459}
   m_Enabled: 1
+--- !u!114 &1530288474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11415536, guid: 2a1ac0e3a3e1fc74890613249fb9606f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1172798220}
+  m_GameObject: {fileID: 1530288459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdb0f23979ac33740b580b42d552bb8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1698489515
 Prefab:
   m_ObjectHideFlags: 0

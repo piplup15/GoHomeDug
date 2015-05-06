@@ -10,6 +10,7 @@ public class Player2D : MonoBehaviour {
   public float maxSpeed = 8f;
   public float jumpVelocity = 14f;
   public bool disableRight = false;
+  public bool disableJump = false;
   float scaleSize;
   Vector3 prevVelocity;
 
@@ -81,7 +82,7 @@ public class Player2D : MonoBehaviour {
     Vector3 vel = rigidbody2D.velocity;
     bool right = (Input.GetKey(KeyCode.RightArrow) || Input.GetKey("d")) && !disableRight;
     bool left = Input.GetKey(KeyCode.LeftArrow) || Input.GetKey("a");
-    bool up = Input.GetKey(KeyCode.UpArrow) || Input.GetKey("w");
+    bool up = (Input.GetKey(KeyCode.UpArrow) || Input.GetKey("w")) && !disableJump;
     if (gs.GetState() == GameState.State.PLAY) {
       HandleKeyMovements(left, right, up, ref vel);
       DampenXVelocity(left, right, ref vel);

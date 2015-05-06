@@ -23,17 +23,18 @@ public class title : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		print (standard - time);
+	void FixedUpdate () {
+		//print (standard - time);
 		if (Input.GetKey (KeyCode.Space) && standard == 0) {
 			content = "Sound Effects Recorded by\nBlastwaveFx.com\nNPS.gov\nJuskiddink\nCaroline Ford\nMark DiAngelo";
 			style.fontSize = 25;
-			standard = Time.deltaTime * 1500;
+			//standard = Time.deltaTime * 1500;
+			standard = 1.0f; // 1 second?
 			countdown += 1;
 		} else {
 			switch (countdown) {
 			case 1:
-				time += .01f;
+				time += Time.deltaTime;
 				if (time > standard) {
 					content = "\"Sad Day\" and \"Better Days\"\nRoyalty Free Music from Bensound";
 					time = 0;
@@ -41,7 +42,7 @@ public class title : MonoBehaviour {
 				}
 				break;
 			case 2:
-				time += .01f;
+				time += Time.deltaTime;
 				if (time > standard) {
 					content = "\"Lightless Dawn\"\nKevin MacLeod (incompetech.com)\n" +
 						"Licensed under\nCreative Commons: By Attribution 3.0\n" +
@@ -51,7 +52,7 @@ public class title : MonoBehaviour {
 				}
 				break;
 			case 3:
-				time += .01f;
+				time += Time.deltaTime;
 				if (time > standard) {
 					content = "\"Spacial Harvest\"\nKevin MacLeod (incompetech.com)\n" +
 						"Licensed under\nCreative Commons: By Attribution 3.0\n" +
@@ -61,7 +62,7 @@ public class title : MonoBehaviour {
 				}
 				break;
 			case 4:
-				time += .01f;
+				time += Time.deltaTime;
 				if (time > standard) {
 					content = "Credits\n\nArtists:\nJeejun (J) and Tyler\n\nProgrammers:\nAlvin and Alana";
 					time = 0;
@@ -69,7 +70,7 @@ public class title : MonoBehaviour {
 				}
 				break;
 			case 5:
-				time += .01f;
+				time += Time.deltaTime;
 				if (time > standard) {
 					content = "The End";
 					style.fontSize = 100;
@@ -78,7 +79,7 @@ public class title : MonoBehaviour {
 				}
 				break;
 			case 6:
-				time += .01f;
+				time += Time.deltaTime;
 				if (time > standard) {
 					state.SetState (GameState.State.END);
 				}

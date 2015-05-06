@@ -2680,7 +2680,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextLevelName: Level2
   screenLeftBound: .170000002
-  screenRightBound: .980000019
+  screenRightBound: .970000029
   checkPoints: []
   beginMargin: 2
   beginMovableScreenOffsetY: .620000005
@@ -3302,6 +3302,10 @@ Prefab:
     - target: {fileID: 11468172, guid: cf4c2233ada5fe248ad9942fa2e2d2d3, type: 2}
       propertyPath: beginMargin
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11468172, guid: cf4c2233ada5fe248ad9942fa2e2d2d3, type: 2}
+      propertyPath: state
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cf4c2233ada5fe248ad9942fa2e2d2d3, type: 2}
@@ -4802,6 +4806,7 @@ MonoBehaviour:
   maxSpeed: 8
   jumpVelocity: 14
   disableRight: 0
+  disableJump: 0
 --- !u!61 &2067630445
 BoxCollider2D:
   m_ObjectHideFlags: 0

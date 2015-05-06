@@ -266,7 +266,7 @@ Transform:
   m_LocalScale: {x: .5, y: .5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 41
+  m_RootOrder: 40
 --- !u!1 &98640818
 GameObject:
   m_ObjectHideFlags: 0
@@ -896,7 +896,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 39
+  m_RootOrder: 41
 --- !u!1001 &236262405
 Prefab:
   m_ObjectHideFlags: 0
@@ -1174,8 +1174,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextLevelName: Level3
-  screenLeftBound: .0199999996
-  screenRightBound: .980000019
+  screenLeftBound: .0299999993
+  screenRightBound: .970000029
   checkPoints: []
   beginMargin: 2
   beginMovableScreenOffsetY: .620000005
@@ -2725,7 +2725,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 67
+  m_RootOrder: 68
 --- !u!1 &614136968
 GameObject:
   m_ObjectHideFlags: 0
@@ -2793,7 +2793,7 @@ Transform:
   m_LocalScale: {x: -2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 68
+  m_RootOrder: 70
 --- !u!1001 &620614479
 Prefab:
   m_ObjectHideFlags: 0
@@ -4220,7 +4220,7 @@ Transform:
   m_LocalScale: {x: -2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 70
+  m_RootOrder: 71
 --- !u!1001 &787357924
 Prefab:
   m_ObjectHideFlags: 0
@@ -4267,6 +4267,10 @@ Prefab:
     - target: {fileID: 11468172, guid: cf4c2233ada5fe248ad9942fa2e2d2d3, type: 2}
       propertyPath: nextLevelName
       value: Level3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11468172, guid: cf4c2233ada5fe248ad9942fa2e2d2d3, type: 2}
+      propertyPath: state
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cf4c2233ada5fe248ad9942fa2e2d2d3, type: 2}
@@ -6089,7 +6093,7 @@ Transform:
   m_LocalScale: {x: .5, y: .5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 40
+  m_RootOrder: 39
 --- !u!1001 &1202589690
 Prefab:
   m_ObjectHideFlags: 0
@@ -6243,7 +6247,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 71
+  m_RootOrder: 69
 --- !u!1001 &1233184061
 Prefab:
   m_ObjectHideFlags: 0
@@ -7896,7 +7900,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 69
+  m_RootOrder: 66
 --- !u!1001 &1463361464
 Prefab:
   m_ObjectHideFlags: 0
@@ -9687,6 +9691,7 @@ MonoBehaviour:
   maxSpeed: 8
   jumpVelocity: 14
   disableRight: 0
+  disableJump: 0
 --- !u!61 &1769678054
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10555,7 +10560,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 66
+  m_RootOrder: 67
 --- !u!1 &2052905617
 GameObject:
   m_ObjectHideFlags: 0

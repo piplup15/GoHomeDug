@@ -207,12 +207,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextLevelName: ThroneRoom
-  screenLeftBound: .0199999996
-  screenRightBound: .980000019
+  screenLeftBound: .0299999993
+  screenRightBound: .970000029
   checkPoints: []
   beginMargin: .5
   beginMovableScreenOffsetY: .620000005
-  state: 0
+  state: 2
 --- !u!4 &1806621147
 Transform:
   m_ObjectHideFlags: 0
