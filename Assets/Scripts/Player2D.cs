@@ -246,7 +246,9 @@ public class Player2D : MonoBehaviour {
     }
     if (col.contacts[0].normal.y > 0.9f) {
       this.animator.SetBool("justJumped", false);
-      this.jumpLandAudio.Play();
+      if (!this.animator.GetBool("grounded")) {
+        this.jumpLandAudio.Play();
+      }
     }
   }
 
