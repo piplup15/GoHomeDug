@@ -27,7 +27,6 @@ public class Player2D : MonoBehaviour {
   AudioSource walkAudio;
   AudioSource jumpAudio;
   AudioSource jumpLandAudio;
-  AudioSource respawnAudio;
 
   // Use this for initialization
   void Awake () {
@@ -46,9 +45,7 @@ public class Player2D : MonoBehaviour {
         this.jumpAudio = audio;
       } else if (audio.clip.name == "Jump_Landing.mp3") {
         this.jumpLandAudio = audio;
-      } else if (audio.clip.name == "Spawn_Noise.mp3") {
-        this.respawnAudio = audio;
-      }
+      } 
     }
   }
 
@@ -162,6 +159,9 @@ public class Player2D : MonoBehaviour {
         vel.x = 0.0f;
       }
     } 
+    if (pos.y < 0.0f) { // for the fall scene
+      gs.SetState(GameState.State.END_FALL);
+    }
   }
 
   // Handle case where character falls off platform without jumping
@@ -229,26 +229,33 @@ public class Player2D : MonoBehaviour {
 
   // Detect collision with player and dead bodies
   void OnCollisionEnter2D (Collision2D col) {
-    if (col.gameObject.tag == "Enemy") {
-      gs.SetState(GameState.State.RESPAWN);
-      if (col.contacts[0].normal.y < 0.9f) {
-        prevVelocity.y = 0;
+    if (Application.loadedLevelName == "Cliff2") { // grandfinale
+      if (col.gameObject.tag == "Finish") {
+        this.animator.SetBool("dead", true);
+        TranslateAmtInDir(-2.0f, "y");
       }
-      this.rigidbody2D.velocity = prevVelocity;
-      gs.TurnOnEnemyColliders(false); // probably should have used a trigger.....
-    }
-    if (col.gameObject.tag == "Movable") {
-      if (col.contacts[0].normal.y > 0.9f) {
-        MovableScript m = col.gameObject.GetComponent<MovableScript>();
-        if (m.IsUsable()) {
-          gs.SetCurrentMovable(m);
+    } else {
+      if (col.gameObject.tag == "Enemy") {
+        gs.SetState(GameState.State.RESPAWN);
+        if (col.contacts[0].normal.y < 0.9f) {
+          prevVelocity.y = 0;
+        }
+        this.rigidbody2D.velocity = prevVelocity;
+        gs.TurnOnEnemyColliders(false); // probably should have used a trigger.....
+      }
+      if (col.gameObject.tag == "Movable") {
+        if (col.contacts[0].normal.y > 0.9f) {
+          MovableScript m = col.gameObject.GetComponent<MovableScript>();
+          if (m.IsUsable()) {
+            gs.SetCurrentMovable(m);
+          }
         }
       }
-    }
-    if (col.contacts[0].normal.y > 0.9f) {
-      this.animator.SetBool("justJumped", false);
-      if (!this.animator.GetBool("grounded")) {
-        this.jumpLandAudio.Play();
+      if (col.contacts[0].normal.y > 0.9f) {
+        this.animator.SetBool("justJumped", false);
+        if (!this.animator.GetBool("grounded")) {
+          this.jumpLandAudio.Play();
+        }
       }
     }
   }
@@ -257,7 +264,6 @@ public class Player2D : MonoBehaviour {
   public void Reset() {
     this.rigidbody2D.velocity = new Vector2(0.0f, 0.0f);
     ChangeScaleX(1.0f); // Make dug face left
-    this.respawnAudio.Play();
     gs.ResetMovables();
   }
 

@@ -44,4 +44,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/TransitionToCliff.unity
   - enabled: 1
-    path: Assets/Scenes/Cliff.unity
+    path: Assets/Scenes/Cliff1.unity
+  - enabled: 1
+    path: Assets/Scenes/Cliff2.unity
