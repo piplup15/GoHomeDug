@@ -22,6 +22,7 @@ public class Player2D : MonoBehaviour {
   AudioSource walkAudio;
   AudioSource jumpAudio;
   AudioSource jumpLandAudio;
+  AudioSource respawnAudio;
 
   // Use this for initialization
   void Awake () {
@@ -39,8 +40,11 @@ public class Player2D : MonoBehaviour {
         this.jumpAudio = audio;
       } else if (audio.clip.name == "Jump_Landing.mp3") {
         this.jumpLandAudio = audio;
+      } else if (audio.clip.name == "Spawn_Noise.mp3") {
+        this.respawnAudio = audio;
       }
     }
+    Debug.Log(this.respawnAudio);
   }
 
 
@@ -237,6 +241,7 @@ public class Player2D : MonoBehaviour {
   public void Reset() {
     this.rigidbody2D.velocity = new Vector2(0.0f, 0.0f);
     ChangeScaleX(1.0f); // Make dug face left
+    this.respawnAudio.Play();
   }
 
   // Translate amt units in a direction
