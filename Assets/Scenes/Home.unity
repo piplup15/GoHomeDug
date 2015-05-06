@@ -87,7 +87,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 430710, guid: 2a1ac0e3a3e1fc74890613249fb9606f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -8.90999985
+      value: -7.5
       objectReference: {fileID: 0}
     - target: {fileID: 430710, guid: 2a1ac0e3a3e1fc74890613249fb9606f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -111,6 +111,18 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 430710, guid: 2a1ac0e3a3e1fc74890613249fb9606f, type: 2}
       propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 430710, guid: 2a1ac0e3a3e1fc74890613249fb9606f, type: 2}
+      propertyPath: m_LocalScale.x
+      value: .600000024
+      objectReference: {fileID: 0}
+    - target: {fileID: 430710, guid: 2a1ac0e3a3e1fc74890613249fb9606f, type: 2}
+      propertyPath: m_LocalScale.y
+      value: .600000024
+      objectReference: {fileID: 0}
+    - target: {fileID: 11430710, guid: 2a1ac0e3a3e1fc74890613249fb9606f, type: 2}
+      propertyPath: disableJump
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -159,7 +171,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11468172, guid: cf4c2233ada5fe248ad9942fa2e2d2d3, type: 2}
       propertyPath: nextLevelName
-      value: PathToCliffside
+      value: TransitionToPathToCliffside
       objectReference: {fileID: 0}
     - target: {fileID: 11468172, guid: cf4c2233ada5fe248ad9942fa2e2d2d3, type: 2}
       propertyPath: state
@@ -692,9 +704,10 @@ GameObject:
   - 82: {fileID: 1438256770}
   - 82: {fileID: 1438256769}
   - 82: {fileID: 1438256766}
+  - 114: {fileID: 1438256780}
   m_Layer: 8
   m_Name: Dug
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -710,7 +723,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 090f24e195c806e409af164b7b6660be, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: .300000012
+  m_Volume: .442000002
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -788,6 +801,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 8
   jumpVelocity: 14
+  disableRight: 0
+  disableJump: 1
 --- !u!82 &1438256769
 AudioSource:
   m_ObjectHideFlags: 0
@@ -982,7 +997,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1438256765}
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: e4eb0f695cbd9604d910c8f23a23b6d0, type: 2}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Size: {x: 1.19722664, y: .560479164}
   m_Center: {x: -.186386108, y: 3.14914703}
 --- !u!50 &1438256774
@@ -1031,8 +1046,8 @@ Transform:
   m_PrefabInternal: {fileID: 101267871}
   m_GameObject: {fileID: 1438256765}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.7600002, y: -8.90999985, z: 0}
-  m_LocalScale: {x: .400000006, y: .400000006, z: 1}
+  m_LocalPosition: {x: 21.7600002, y: -7.5, z: 0}
+  m_LocalScale: {x: .600000024, y: .600000024, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -1072,6 +1087,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: 4.06220341, y: 5.12601471}
   m_Center: {x: -.0354657881, y: -1.49247313}
+--- !u!114 &1438256780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11415536, guid: 2a1ac0e3a3e1fc74890613249fb9606f,
+    type: 2}
+  m_PrefabInternal: {fileID: 101267871}
+  m_GameObject: {fileID: 1438256765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdb0f23979ac33740b580b42d552bb8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1529072949
 Prefab:
   m_ObjectHideFlags: 0
@@ -1188,9 +1215,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72d950149693a1144b4ab8e98d74edbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevelName: PathToCliffside
-  screenLeftBound: .0199999996
-  screenRightBound: .980000019
+  nextLevelName: TransitionToPathToCliffside
+  screenLeftBound: .0299999993
+  screenRightBound: .970000029
   checkPoints: []
   beginMargin: .5
   beginMovableScreenOffsetY: .620000005

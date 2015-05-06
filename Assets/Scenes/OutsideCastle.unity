@@ -247,7 +247,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11468172, guid: cf4c2233ada5fe248ad9942fa2e2d2d3, type: 2}
       propertyPath: nextLevelName
-      value: Tutorial
+      value: TransitionToTutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 11468172, guid: cf4c2233ada5fe248ad9942fa2e2d2d3, type: 2}
+      propertyPath: state
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cf4c2233ada5fe248ad9942fa2e2d2d3, type: 2}
@@ -282,9 +286,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72d950149693a1144b4ab8e98d74edbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevelName: Tutorial
-  screenLeftBound: .0199999996
-  screenRightBound: .980000019
+  nextLevelName: TransitionToTutorial
+  screenLeftBound: .0299999993
+  screenRightBound: .970000029
   checkPoints: []
   beginMargin: .5
   beginMovableScreenOffsetY: .620000005
@@ -732,9 +736,10 @@ GameObject:
   - 82: {fileID: 1618559700}
   - 82: {fileID: 1618559698}
   - 82: {fileID: 1618559694}
+  - 114: {fileID: 1618559703}
   m_Layer: 8
   m_Name: Dug
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -753,6 +758,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 8
   jumpVelocity: 14
+  disableRight: 0
+  disableJump: 0
 --- !u!61 &1618559690
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -762,7 +769,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 1618559688}
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: e4eb0f695cbd9604d910c8f23a23b6d0, type: 2}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Size: {x: 1.19722664, y: .560479164}
   m_Center: {x: -.186386108, y: 3.14914703}
 --- !u!61 &1618559691
@@ -812,7 +819,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 090f24e195c806e409af164b7b6660be, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: .300000012
+  m_Volume: .442000002
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1112,6 +1119,18 @@ AudioListener:
   m_PrefabInternal: {fileID: 16473936}
   m_GameObject: {fileID: 1618559688}
   m_Enabled: 1
+--- !u!114 &1618559703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11415536, guid: 2a1ac0e3a3e1fc74890613249fb9606f,
+    type: 2}
+  m_PrefabInternal: {fileID: 16473936}
+  m_GameObject: {fileID: 1618559688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdb0f23979ac33740b580b42d552bb8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1871314055
 GameObject:
   m_ObjectHideFlags: 0
