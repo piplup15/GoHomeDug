@@ -159,8 +159,8 @@ public class Player2D : MonoBehaviour {
         vel.x = 0.0f;
       }
     } 
-    if (pos.y < 0.0f) { // for the fall scene
-      gs.SetState(GameState.State.END_FALL);
+    if (pos.y < -0.2f) { // for the fall scene
+      gs.SetState(GameState.State.END);
     }
   }
 

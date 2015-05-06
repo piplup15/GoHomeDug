@@ -199,7 +199,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11483016, guid: c531dc33c0fac2c4285cd90484184060, type: 2}
       propertyPath: content
-      value: Dug's House
+      value: Home
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c531dc33c0fac2c4285cd90484184060, type: 2}
@@ -268,7 +268,6 @@ GameObject:
   - 4: {fileID: 484491871}
   - 82: {fileID: 484491870}
   - 114: {fileID: 484491869}
-  - 82: {fileID: 484491868}
   m_Layer: 0
   m_Name: BackgroundMusic1Transition
   m_TagString: BackgroundMusic
@@ -276,65 +275,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!82 &484491868
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8248156, guid: 133f996fd87082b429aa83dcad5fae27,
-    type: 2}
-  m_PrefabInternal: {fileID: 64746287}
-  m_GameObject: {fileID: 484491867}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: d01f458c5bf892c4fa309e4bdba62ab4, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: .0520000011
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!114 &484491869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -772,7 +712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c959674511b14e46ac512dc2314b632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  content: Dug's House
+  content: Home
 --- !u!212 &1991173726
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -305,6 +305,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: .5
       objectReference: {fileID: 0}
+    - target: {fileID: 11483016, guid: c531dc33c0fac2c4285cd90484184060, type: 2}
+      propertyPath: content
+      value: Outside the King's Castle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c531dc33c0fac2c4285cd90484184060, type: 2}
   m_RootGameObject: {fileID: 1833357638}
@@ -518,7 +522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c959674511b14e46ac512dc2314b632, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  content: Outside of the Castle
+  content: Outside the King's Castle
 --- !u!82 &1833357644
 AudioSource:
   m_ObjectHideFlags: 0

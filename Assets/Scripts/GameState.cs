@@ -19,7 +19,7 @@ public class GameState : MonoBehaviour {
   GameObject player;
   Player2D playerScript;
 
-  public enum State {BEGIN, END, PLAY, NOCONTROLS, END_ON_MOVABLE, RESPAWN, BEGIN_ON_MOVABLE, END_FALL}
+  public enum State {BEGIN, END, PLAY, NOCONTROLS, END_ON_MOVABLE, RESPAWN, BEGIN_ON_MOVABLE}
   public State state = State.BEGIN;
 
   float endTimer = 2.0f;
@@ -52,7 +52,7 @@ public class GameState : MonoBehaviour {
   }
 
   void FixedUpdate() {
-    if (this.state == State.END || this.state == State.END_ON_MOVABLE || this.state == State.END_FALL) {
+    if (this.state == State.END || this.state == State.END_ON_MOVABLE) {
       HandleEndGameTimer();
     } else if (this.state == State.RESPAWN) {
       HandleRespawnTimer();

@@ -25,7 +25,7 @@ public class title : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 		//print (standard - time);
-		bool keyPressed = Input.GetKey (KeyCode.Space) || Input.GetKey ("w") || Input.GetKey (KeyCode.UpArrow);
+		bool keyPressed = Input.GetKey (KeyCode.Space) || Input.GetKey ("w") || Input.GetKey (KeyCode.UpArrow) || Input.GetMouseButtonDown(0);
 		if (keyPressed && standard == 0) {
 			content = "Sound Effects Recorded by\nBlastwaveFx.com\nNPS.gov\nJuskiddink\nCaroline Ford\nMark DiAngelo";
 			style.fontSize = 25;

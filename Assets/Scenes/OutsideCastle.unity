@@ -201,6 +201,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11430710, guid: 2a1ac0e3a3e1fc74890613249fb9606f, type: 2}
+      propertyPath: disableJump
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2a1ac0e3a3e1fc74890613249fb9606f, type: 2}
   m_RootGameObject: {fileID: 1618559688}
@@ -758,7 +762,7 @@ MonoBehaviour:
   maxSpeed: 8
   jumpVelocity: 14
   disableRight: 0
-  disableJump: 0
+  disableJump: 1
 --- !u!61 &1618559690
 BoxCollider2D:
   m_ObjectHideFlags: 0

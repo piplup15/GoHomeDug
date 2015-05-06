@@ -19,7 +19,6 @@ public class Transition : MonoBehaviour {
     style.wordWrap = true;
     style.normal.textColor = new Color(0.0f, 0.0f, 0.0f, 0.0f);
     transitionClip = Resources.Load("Scene_Transiton.mp3") as AudioClip;
-    Debug.Log(transitionClip);
     AudioSource.PlayClipAtPoint(transitionClip, new Vector3(0.0f, 0.0f, 1.0f), 0.08f);
   }
   
