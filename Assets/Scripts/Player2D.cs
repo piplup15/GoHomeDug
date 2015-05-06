@@ -32,8 +32,6 @@ public class Player2D : MonoBehaviour {
   void Awake () {
     this.scaleSize = this.transform.localScale.x;
     this.startPosition = this.transform.position;
-    this.animator = GetComponent<Animator>();
-    this.sr = GetComponent<SpriteRenderer>();
     FindAudioSources();
   }
 
