@@ -10,20 +10,38 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ThroneRoom.unity
   - enabled: 1
-    path: Assets/Scenes/Tutorial.unity
+    path: Assets/Scenes/TransitionToOutsideCastle.unity
   - enabled: 1
     path: Assets/Scenes/OutsideCastle.unity
   - enabled: 1
+    path: Assets/Scenes/TransitionToTutorial.unity
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+  - enabled: 1
+    path: Assets/Scenes/TransitionToLevel1.unity
+  - enabled: 1
     path: Assets/Scenes/Level1.unity
+  - enabled: 1
+    path: Assets/Scenes/TransitionToLevel2.unity
   - enabled: 1
     path: Assets/Scenes/Level2.unity
   - enabled: 1
+    path: Assets/Scenes/TransitionToLevel3.unity
+  - enabled: 1
     path: Assets/Scenes/Level3.unity
+  - enabled: 1
+    path: Assets/Scenes/TransitionToVillage.unity
   - enabled: 1
     path: Assets/Scenes/Village.unity
   - enabled: 1
+    path: Assets/Scenes/TransitionToHome.unity
+  - enabled: 1
     path: Assets/Scenes/Home.unity
   - enabled: 1
+    path: Assets/Scenes/TransitionToPathToCliffside.unity
+  - enabled: 1
     path: Assets/Scenes/PathToCliffside.unity
+  - enabled: 1
+    path: Assets/Scenes/TransitionToCliff.unity
   - enabled: 1
     path: Assets/Scenes/Cliff.unity

@@ -960,7 +960,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11468172, guid: cf4c2233ada5fe248ad9942fa2e2d2d3, type: 2}
       propertyPath: nextLevelName
-      value: Village
+      value: TransitionToVillage
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cf4c2233ada5fe248ad9942fa2e2d2d3, type: 2}
@@ -1516,8 +1516,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72d950149693a1144b4ab8e98d74edbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevelName: Village
-  screenLeftBound: .0199999996
+  nextLevelName: TransitionToVillage
+  screenLeftBound: .0299999993
   screenRightBound: .870000005
   checkPoints: []
   beginMargin: .5
@@ -2390,6 +2390,7 @@ MonoBehaviour:
   maxSpeed: 8
   jumpVelocity: 14
   disableRight: 0
+  disableJump: 0
 --- !u!61 &1694702556
 BoxCollider2D:
   m_ObjectHideFlags: 0

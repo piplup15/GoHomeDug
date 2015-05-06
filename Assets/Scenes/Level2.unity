@@ -896,7 +896,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 41
+  m_RootOrder: 42
 --- !u!1001 &236262405
 Prefab:
   m_ObjectHideFlags: 0
@@ -1173,7 +1173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72d950149693a1144b4ab8e98d74edbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevelName: Level3
+  nextLevelName: TransitionToLevel3
   screenLeftBound: .0299999993
   screenRightBound: .970000029
   checkPoints: []
@@ -2725,7 +2725,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 68
+  m_RootOrder: 69
 --- !u!1 &614136968
 GameObject:
   m_ObjectHideFlags: 0
@@ -4266,7 +4266,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11468172, guid: cf4c2233ada5fe248ad9942fa2e2d2d3, type: 2}
       propertyPath: nextLevelName
-      value: Level3
+      value: TransitionToLevel3
       objectReference: {fileID: 0}
     - target: {fileID: 11468172, guid: cf4c2233ada5fe248ad9942fa2e2d2d3, type: 2}
       propertyPath: state
@@ -6247,7 +6247,7 @@ Transform:
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 69
+  m_RootOrder: 68
 --- !u!1001 &1233184061
 Prefab:
   m_ObjectHideFlags: 0
@@ -9476,7 +9476,7 @@ Transform:
   m_LocalScale: {x: .400000006, y: .400000006, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 42
+  m_RootOrder: 41
 --- !u!1001 &1733207932
 Prefab:
   m_ObjectHideFlags: 0
