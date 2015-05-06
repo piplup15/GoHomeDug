@@ -18,6 +18,9 @@ public class Player2D : MonoBehaviour {
   // Game state
   GameState gs;
 
+  // Sprite Renderer
+  SpriteRenderer sr;
+
   // Audiosources
   AudioSource walkAudio;
   AudioSource jumpAudio;
@@ -29,6 +32,7 @@ public class Player2D : MonoBehaviour {
     this.scaleSize = this.transform.localScale.x;
     this.startPosition = this.transform.position;
     this.animator = GetComponent<Animator>();
+    this.sr = GetComponent<SpriteRenderer>();
     FindAudioSources();
   }
 
@@ -44,7 +48,6 @@ public class Player2D : MonoBehaviour {
         this.respawnAudio = audio;
       }
     }
-    Debug.Log(this.respawnAudio);
   }
 
 
@@ -65,6 +68,7 @@ public class Player2D : MonoBehaviour {
   void FixedUpdate() {
     UpdateVelocities();
     PlayAudio();
+    MakeSpriteTransparent(this.gs.GetState() == GameState.State.RESPAWN);
   }
 
   /**************************************************************/
@@ -183,6 +187,15 @@ public class Player2D : MonoBehaviour {
   // Set state of grounded flag
   public void SetGrounded(bool grounded) {
     this.animator.SetBool("grounded", grounded);
+  }
+
+  // Change color of sprite
+  void MakeSpriteTransparent(bool makeTransparent) {
+    if (makeTransparent) {
+      this.sr.color = new Color(1.0f, 1.0f, 1.0f, Mathf.Max(this.sr.color.a - 0.02f, 0.0f));
+    } else { 
+      this.sr.color = new Color(1.0f, 1.0f, 1.0f, Mathf.Min(this.sr.color.a + 0.05f, 1.0f));
+    }
   }
 
   // Change direction of character.
