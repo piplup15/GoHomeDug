@@ -83,7 +83,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 430710, guid: 2a1ac0e3a3e1fc74890613249fb9606f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 21.7600002
+      value: -14.1000004
       objectReference: {fileID: 0}
     - target: {fileID: 430710, guid: 2a1ac0e3a3e1fc74890613249fb9606f, type: 2}
       propertyPath: m_LocalPosition.y
@@ -128,6 +128,10 @@ Prefab:
     - target: {fileID: 11430710, guid: 2a1ac0e3a3e1fc74890613249fb9606f, type: 2}
       propertyPath: maxSpeed
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11430710, guid: 2a1ac0e3a3e1fc74890613249fb9606f, type: 2}
+      propertyPath: disableRight
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2a1ac0e3a3e1fc74890613249fb9606f, type: 2}
@@ -175,15 +179,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11468172, guid: cf4c2233ada5fe248ad9942fa2e2d2d3, type: 2}
       propertyPath: nextLevelName
-      value: HomeTalk
+      value: TransitionToPathToCliffside
       objectReference: {fileID: 0}
     - target: {fileID: 11468172, guid: cf4c2233ada5fe248ad9942fa2e2d2d3, type: 2}
       propertyPath: state
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11468172, guid: cf4c2233ada5fe248ad9942fa2e2d2d3, type: 2}
-      propertyPath: screenLeftBound
-      value: .75
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cf4c2233ada5fe248ad9942fa2e2d2d3, type: 2}
@@ -649,7 +649,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 5
   jumpVelocity: 14
-  disableRight: 0
+  disableRight: 1
   disableJump: 1
 --- !u!82 &1438256769
 AudioSource:
@@ -894,7 +894,7 @@ Transform:
   m_PrefabInternal: {fileID: 101267871}
   m_GameObject: {fileID: 1438256765}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 21.7600002, y: -7.5, z: 0}
+  m_LocalPosition: {x: -14.1000004, y: -7.5, z: 0}
   m_LocalScale: {x: .600000024, y: .600000024, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1019,13 +1019,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72d950149693a1144b4ab8e98d74edbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevelName: HomeTalk
-  screenLeftBound: .75
+  nextLevelName: TransitionToPathToCliffside
+  screenLeftBound: .0299999993
   screenRightBound: .970000029
   checkPoints: []
   beginMargin: .5
   beginMovableScreenOffsetY: .620000005
-  state: 0
+  state: 2
 --- !u!4 &2061796586
 Transform:
   m_ObjectHideFlags: 0
