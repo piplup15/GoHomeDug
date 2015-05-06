@@ -30,7 +30,7 @@ public class title : MonoBehaviour {
 			content = "Sound Effects Recorded by\nBlastwaveFx.com\nNPS.gov\nJuskiddink\nCaroline Ford\nMark DiAngelo";
 			style.fontSize = 25;
 			//standard = Time.deltaTime * 1500;
-			standard = 1.0f; // 1 second?
+			standard = 3.0f; // 1 second?
 			countdown += 1;
 		} else {
 			switch (countdown) {
