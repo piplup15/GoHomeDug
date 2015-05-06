@@ -1740,7 +1740,6 @@ GameObject:
   - 82: {fileID: 1644421476}
   - 82: {fileID: 1644421475}
   - 82: {fileID: 1644421474}
-  - 82: {fileID: 1644421469}
   m_Layer: 8
   m_Name: Dug
   m_TagString: Player
@@ -1788,7 +1787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6560987e24ca24641a8d7fe57827cced, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 8
+  maxSpeed: 5
   jumpVelocity: 14
   disableRight: 1
   disableJump: 1
@@ -1828,65 +1827,6 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: 4.06220341, y: 5.12601471}
   m_Center: {x: -.0354657881, y: -1.49247313}
---- !u!82 &1644421469
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8297012, guid: 2a1ac0e3a3e1fc74890613249fb9606f,
-    type: 2}
-  m_PrefabInternal: {fileID: 2059528223}
-  m_GameObject: {fileID: 1644421461}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 090f24e195c806e409af164b7b6660be, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: .442000002
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!50 &1644421470
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -2484,6 +2424,10 @@ Prefab:
     - target: {fileID: 11430710, guid: 2a1ac0e3a3e1fc74890613249fb9606f, type: 2}
       propertyPath: disableJump
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11430710, guid: 2a1ac0e3a3e1fc74890613249fb9606f, type: 2}
+      propertyPath: maxSpeed
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11415536, guid: 2a1ac0e3a3e1fc74890613249fb9606f, type: 2}

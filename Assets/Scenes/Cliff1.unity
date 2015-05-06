@@ -457,6 +457,10 @@ Prefab:
       propertyPath: jumpVelocity
       value: 14
       objectReference: {fileID: 0}
+    - target: {fileID: 11430710, guid: 2a1ac0e3a3e1fc74890613249fb9606f, type: 2}
+      propertyPath: maxSpeed
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2a1ac0e3a3e1fc74890613249fb9606f, type: 2}
   m_RootGameObject: {fileID: 1530288459}
@@ -657,7 +661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6560987e24ca24641a8d7fe57827cced, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 8
+  maxSpeed: 5
   jumpVelocity: 14
   disableRight: 1
   disableJump: 0
