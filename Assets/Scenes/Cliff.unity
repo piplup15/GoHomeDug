@@ -480,6 +480,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11430710, guid: 2a1ac0e3a3e1fc74890613249fb9606f, type: 2}
+      propertyPath: disableRight
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2a1ac0e3a3e1fc74890613249fb9606f, type: 2}
   m_RootGameObject: {fileID: 1530288459}
@@ -682,6 +686,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 8
   jumpVelocity: 14
+  disableRight: 1
 --- !u!50 &1530288466
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -744,7 +749,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 090f24e195c806e409af164b7b6660be, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: .300000012
+  m_Volume: .442000002
   m_Pitch: 1
   Loop: 0
   Mute: 0

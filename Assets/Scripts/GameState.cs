@@ -43,7 +43,9 @@ public class GameState : MonoBehaviour {
 
   void Start() {
     this.player = GameObject.Find("Dug");
-    this.playerScript = this.player.GetComponent<Player2D>();
+    if (this.player) {
+      this.playerScript = this.player.GetComponent<Player2D>();
+    }
     this.movableObjects = GameObject.FindGameObjectsWithTag("Movable");
     this.enemies = GameObject.FindGameObjectsWithTag("Enemy");
     this.arrows = GameObject.FindGameObjectsWithTag("Checkpoint");

@@ -9,6 +9,7 @@ public class Player2D : MonoBehaviour {
   float deltaVx = 0.5f;
   public float maxSpeed = 8f;
   public float jumpVelocity = 14f;
+  public bool disableRight = false;
   float scaleSize;
   Vector3 prevVelocity;
 
@@ -78,9 +79,9 @@ public class Player2D : MonoBehaviour {
   // Update velocity on each timestep
   void UpdateVelocities() {
     Vector3 vel = rigidbody2D.velocity;
-    bool right = Input.GetKey(KeyCode.RightArrow);
-    bool left = Input.GetKey(KeyCode.LeftArrow);
-    bool up = Input.GetKey(KeyCode.UpArrow);
+    bool right = (Input.GetKey(KeyCode.RightArrow) || Input.GetKey("d")) && !disableRight;
+    bool left = Input.GetKey(KeyCode.LeftArrow) || Input.GetKey("a");
+    bool up = Input.GetKey(KeyCode.UpArrow) || Input.GetKey("w");
     if (gs.GetState() == GameState.State.PLAY) {
       HandleKeyMovements(left, right, up, ref vel);
       DampenXVelocity(left, right, ref vel);
