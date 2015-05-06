@@ -5,63 +5,53 @@ using UnityEngine.UI;
 public class voice : MonoBehaviour {
 	GUIStyle style;
 	bool triggered;
+	bool used;
 	Text dialogue;
 	GameState state;
 	bool fade; //true is in, false is out
 
-	// Use this for initialization
-	void Start () {
-		triggered = false;
+	// Initialize Fields
+	void Awake () {
+		triggered = false; // triggers transparent effects
+		used = false; // one time use
+		dialogue = GetComponent<Text> ();
 		style = new GUIStyle ();
 		style.wordWrap = true;
-		state = GameObject.FindGameObjectWithTag ("GameState").GetComponent<GameState> ();
 		fade = true;
+	}
+
+	// Use this for initialization
+	void Start () {
+		state = GameObject.FindGameObjectWithTag ("GameState").GetComponent<GameState> ();
 	}
 	
 	// Update is called once per frame
-	void Update () {
-		if (triggered) { //dug should not move
+	void FixedUpdate () {
+		if (!used && triggered) { //dug should not move
+			Color c = dialogue.color;
 			if (fade) { //while text fades in 
-				Color c = dialogue.color;
-				c.a += 0.1f * Time.deltaTime * 6;
+				state.SetState (GameState.State.NOCONTROLS);
+				c.a = Mathf.Min(1.0f, c.a + 0.6f * Time.deltaTime);
 				dialogue.color = c;
-				//print ("text fades in");
-				if (dialogue.color.a >= 1) {
-					fade = false; //false
-					//print ("dialogue.color.a >= 1");
+				if (dialogue.color.a == 1.0f) {
+					fade = false;
+					state.SetState (GameState.State.PLAY);
 				}
-			}
-		
-			else { //or text fades out
-				state.SetState (GameState.State.PLAY);
-				Color c = dialogue.color;
-				c.a -= 0.1f * Time.deltaTime * 6;
+			} else {
+				c.a = Mathf.Max(0.0f, c.a - 0.6f * Time.deltaTime);
 				dialogue.color = c;
-				//print ("text fades out");
-				if (dialogue.color.a <= 0){ //done
-					fade = true; //true
-					triggered = false;
-					//print ("dialogue.color.a <= 0");
-					dialogue = null;
+				if (dialogue.color.a == 0.0f) {
+					fade = true;
+					used = true;
 				}
 			}
 		}
-
 	}
 
 
 	void OnTriggerEnter2D(Collider2D other) {
-		if (other.tag == "Dug") {
+		if (other.tag == "Player") {
 			triggered = true;
-			if (other.gameObject.GetComponent<Text> () != dialogue) {
-				dialogue = other.gameObject.GetComponent<Text> ();
-				Color c = dialogue.color;
-				c.a = 0;
-				dialogue.color = c;
-				state.SetState (GameState.State.NOCONTROLS);
-			}
 		}
 	}
-
-
 }

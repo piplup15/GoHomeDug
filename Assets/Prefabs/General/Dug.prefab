@@ -21,9 +21,10 @@ GameObject:
   - 82: {fileID: 8297008}
   - 82: {fileID: 8297010}
   - 82: {fileID: 8297012}
+  - 114: {fileID: 11415536}
   m_Layer: 8
   m_Name: Dug
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130710}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 180.360001, y: 30.0699997, z: 0}
+  m_LocalPosition: {x: 110.400002, y: -6.30000019, z: 0}
   m_LocalScale: {x: .400000006, y: .400000006, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -96,7 +97,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 130710}
   m_Enabled: 1
   m_Material: {fileID: 6200000, guid: e4eb0f695cbd9604d910c8f23a23b6d0, type: 2}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Size: {x: 1.19722664, y: .560479164}
   m_Center: {x: -.186386108, y: 3.14914703}
 --- !u!81 &8197012
@@ -353,6 +354,17 @@ Animator:
   m_ApplyRootMotion: 0
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11415536
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdb0f23979ac33740b580b42d552bb8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11430710
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -366,6 +378,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxSpeed: 8
   jumpVelocity: 14
+  disableRight: 1
 --- !u!212 &21230710
 SpriteRenderer:
   m_ObjectHideFlags: 1
